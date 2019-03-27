@@ -1,3 +1,83 @@
-<div class="questionNumber">Question Number</div>
+<!--<div class="questionNumber">Question Number</div>
 <div class="questionText">Question Text</div>
 <div class="questionAnswers">Question Answers</div>
+-->
+
+<!--Multiple Choice-->
+<form action="/action_page.php">
+    <div class="question">
+        <div class="questionNumber">1</div>
+        <div class="questionText">True/False</div>
+        <div class="questionAnswers">
+            <input class="trueFalse" type="radio" name="question1" value="option1"> True<br>
+            <input class="trueFalse" type="radio" name="question1" value="option2"> False<br>
+        </div>
+    </div>
+    <br>
+    <div class="question">
+        <div class="questionNumber">2</div>
+        <div class="questionText">Multiple Choice</div>
+        <div class="questionAnswers">
+            <input class="multipleChoice" type="radio" name="question2" value="option1"> Answer1<br>
+            <input class="multipleChoice" type="radio" name="question2" value="option2"> Answer2<br>
+            <input class="multipleChoice" type="radio" name="question2" value="option3"> Answer3<br>
+            <input class="multipleChoice" type="radio" name="question2" value="option4"> Answer4<br>
+        </div>
+    </div>
+    <br>
+    <div class="question">
+        <div class="questionNumber">3</div>
+        <div class="questionText">Short Answer</div>
+        <div class="questionAnswers">
+            <input class="shortAnswer" type="text" name="question3">
+        </div>
+    </div>
+    <br>
+    <div class="question">
+        <div class="questionNumber">4</div>
+        <div class="questionText">Essay Answer</div>
+        <div class="questionAnswers">
+            <input class="essayAnswer" type="text" name="question4">
+        </div>
+    </div>
+    <br>
+    <div class="question">
+        <div class="questionNumber">5</div>
+        <div class="questionText">Matching</div>
+        <div class="questionAnswers">
+            <table class="matchingTable">
+                <th>Choices</th>
+                <tr><td>A Prompt 1</td></tr>
+                <tr><td>B Prompt 2</td></tr>
+                <tr><td>C Prompt 3</td></tr>
+                <tr><td>D Prompt 4</td></tr>
+            </table>
+            
+            <input class="matching" type="text" name="question5_1"> Answer 1<br>
+            <input class="matching" type="text" name="question5_2"> Answer 2<br>
+            <input class="matching" type="text" name="question5_3"> Answer 3<br>
+            <input class="matching" type="text" name="question5_4"> Answer 4<br>
+        </div>
+    </div>
+    <br>
+    <div class="question">
+            <div class="questionNumber">6</div>
+            <div class="questionText">Rank the Choices</div>
+            <div class="questionAnswers">
+                    <table class="rankingTable">
+                        <th>Choices</th>
+                        <tr><td>A Answer 1</td></tr>
+                        <tr><td>B Answer 2</td></tr>
+                        <tr><td>C Answer 3</td></tr>
+                        <tr><td>D Answer 4</td></tr>
+                    </table>
+                    
+                    <input class="ranking" type="text" name="question6_1"><br>
+                    <input class="ranking" type="text" name="question6_2"><br>
+                    <input class="ranking" type="text" name="question6_3"><br>
+                    <input class="ranking" type="text" name="question6_4"><br>
+                </div>
+        </div>
+        <br>
+    <input class="button" type="submit" value="Submit">
+  </form>
