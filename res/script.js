@@ -1,5 +1,6 @@
 //TODO: Add number of desired answers to addQuestion method
 var questionNumber = 1
+var formType = 'test'
 function addQuestion(type, number) {
     if (type == "trueFalse")
         return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<div class="questionAnswers">\n<input class="trueFalse" type="radio" name="question'+number+'" placeholder="option1"> True<br>\n<input class="trueFalse" type="radio" name="question'+number+'" placeholder="option2"> False<br>\n</div>\n</div>\n<br></br>';
@@ -53,16 +54,17 @@ function deleteLastQuestion() {
         hideDeleteButton()
 }
 
-
-console.log(addQuestion("trueFalse", 1));
-console.log("\n");
-console.log(addQuestion("multipleChoice", 2));
-console.log("\n");
-console.log(addQuestion("shortAnswer", 3));
-console.log("\n");
-console.log(addQuestion("essayAnswer", 4));
-console.log("\n");
-console.log(addQuestion("matching", 5));
-console.log("\n");
-console.log(addQuestion("ranking", 6));
-
+function changeType(type) {
+    if (type == 'test' && formType != 'test') {
+        formType = type;
+        test = document.getElementById("testTypeButton").classList.add("typeSelected");
+        document.getElementById("surveyTypeButton").classList.remove("typeSelected");
+        //test form code here
+    }
+    else if (type == 'survey' && formType != 'survey') {
+        formType = type;
+        document.getElementById("surveyTypeButton").classList.add("typeSelected");
+        document.getElementById("testTypeButton").classList.remove("typeSelected");
+        //survey form code here
+    }
+}

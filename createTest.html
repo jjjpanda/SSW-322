@@ -1,11 +1,16 @@
 <link rel = "stylesheet" type="text/css" href="res/css.css"/>
 <script type="text/javascript" src="res/script.js"></script>
-<button onclick="writeQuestion('trueFalse')"> True/False </button>
+
+<input id="testName" type="text" placeholder="Name"></div>
+<button id="testTypeButton" class="typeSelected" onclick="changeType('test')"> Test </button>
+<button id="surveyTypeButton" onclick="changeType('survey')"> Survey </button>
+
+<div id="questionDiv"></div>
+<button id="deleteButton" style="display:none" onclick="deleteLastQuestion()"> Delete Last Question </button>
+<p></p>
+Add Question: <button onclick="writeQuestion('trueFalse')"> True/False </button>
 <button onclick="writeQuestion('multipleChoice')"> Multiple Choice </button>
 <button onclick="writeQuestion('shortAnswer')"> Short Answer </button>
 <button onclick="writeQuestion('essayAnswer')"> Essay Answer </button>
 <button onclick="writeQuestion('matching')"> Matching </button>
 <button onclick="writeQuestion('ranking')"> Ranking </button>
- <p></p>
-<div id="questionDiv"></div>
-<button id="deleteButton" style="display:none" onclick="deleteLastQuestion()"> Delete Last Question </button>
