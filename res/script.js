@@ -13,7 +13,8 @@ function addQuestion(type, number) {
         return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<div class="questionAnswers">\n<input class="matchningPromptCreate" type="text" name="question'+number+'_1_1" placeholder="Question Prompt">=\n<input class="matchningPromptCreate" type="text" name="question'+number+'_1_2" placeholder="Question Answer">\n<br>\n<input class="matchningPromptCreate" type="text" name="question'+number+'_2_1" placeholder="Question Prompt">=\n<input class="matchningPromptCreate" type="text" name="question'+number+'_2_2" placeholder="Question Answer">\n<br>\n<input class="matchningPromptCreate" type="text" name="question'+number+'_3_1" placeholder="Question Prompt">=\n<input class="matchningPromptCreate" type="text" name="question'+number+'_3_2" placeholder="Question Answer">\n<br>\n<input class="matchningPromptCreate" type="text" name="question'+number+'_4_1" placeholder="Question Prompt">=\n<input class="matchningPromptCreate" type="text" name="question'+number+'_4_2" placeholder="Question Answer">\n</div>\n</div>\n<br></br>';
     if (type == "ranking")
         return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<br>\n<div class="questionAnswers">\n<input class="rankingPromptCreate" type="text" name="question'+number+'_1" placeholder="Question Answer 1"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_2" placeholder="Question Answer 2"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_3" placeholder="Question Answer 3"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_4" placeholder="Question Answer 4"><br>\n</div>\n</div>\n<br>';
-    }
+}
+
 function writeToScreen(text) {
     output = document.getElementById("questionDiv");
     var pre = document.createElement("p");
@@ -26,6 +27,16 @@ function writeQuestion(type) {
     writeToScreen(addQuestion(type, questionNumber));
     questionNumber++;
 }
+
+function deleteLastQuestion() {
+    output = document.getElementById("questionDiv");
+    if (output.lastChild != null) {
+        output.removeChild(output.lastChild);
+        questionNumber--;
+    }
+}
+
+
 console.log(addQuestion("trueFalse", 1));
 console.log("\n");
 console.log(addQuestion("multipleChoice", 2));
