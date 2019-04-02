@@ -1,4 +1,5 @@
 //TODO: Add number of desired answers to addQuestion method
+var questionNumber = 1
 function addQuestion(type, number) {
     if (type == "trueFalse")
         return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<div class="questionAnswers">\n<input class="trueFalse" type="radio" name="question'+number+'" placeholder="option1"> True<br>\n<input class="trueFalse" type="radio" name="question'+number+'" placeholder="option2"> False<br>\n</div>\n</div>\n<br></br>';
@@ -13,6 +14,18 @@ function addQuestion(type, number) {
     if (type == "ranking")
         return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<br>\n<div class="questionAnswers">\n<input class="rankingPromptCreate" type="text" name="question'+number+'_1" placeholder="Question Answer 1"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_2" placeholder="Question Answer 2"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_3" placeholder="Question Answer 3"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_4" placeholder="Question Answer 4"><br>\n</div>\n</div>\n<br>';
     }
+function writeToScreen(text) {
+    output = document.getElementById("questionDiv");
+    var pre = document.createElement("p");
+	pre.style.wordWrap = "break-word";
+	pre.innerHTML = text;
+    output.appendChild(pre);
+}
+
+function writeQuestion(type) {
+    writeToScreen(addQuestion(type, questionNumber));
+    questionNumber++;
+}
 console.log(addQuestion("trueFalse", 1));
 console.log("\n");
 console.log(addQuestion("multipleChoice", 2));
