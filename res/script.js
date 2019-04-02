@@ -21,11 +21,26 @@ function writeToScreen(text) {
 	pre.style.wordWrap = "break-word";
 	pre.innerHTML = text;
     output.appendChild(pre);
+    showDeleteButton()
 }
 
 function writeQuestion(type) {
     writeToScreen(addQuestion(type, questionNumber));
     questionNumber++;
+}
+
+function hideDeleteButton() {
+    var x = document.getElementById("deleteButton");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    }
+}
+
+function showDeleteButton() {
+    var x = document.getElementById("deleteButton");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    }
 }
 
 function deleteLastQuestion() {
@@ -34,6 +49,8 @@ function deleteLastQuestion() {
         output.removeChild(output.lastChild);
         questionNumber--;
     }
+    if (questionNumber == 1)
+        hideDeleteButton()
 }
 
 
