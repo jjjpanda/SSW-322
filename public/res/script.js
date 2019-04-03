@@ -5,27 +5,30 @@ var formType = 'test'
 function addQuestion(type, number) {
     if (type == "trueFalse"){
         test.push({'questionType':'trueFalse', 'number':number});
-        return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<div class="questionAnswers">\n<input class="trueFalse" type="radio" name="question'+number+'" placeholder="option1"> True<br>\n<input class="trueFalse" type="radio" name="question'+number+'" placeholder="option2"> False<br>\n</div>\n</div>\n<br></br>';
+        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="trueFalse" type="radio" name="question'+number+'" placeholder="option1"> True<br><input class="trueFalse" type="radio" name="question'+number+'" placeholder="option2"> False<br></div></div><br>';
     }
     if (type == "multipleChoice"){
         test.push({'questionType':'multipleChoice', 'number':number});
-        return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<div class="questionAnswers">\n<input class="multipleChoice" type="radio" name="question'+number+'" placeholder="option1"> \n<input class="questionPromptCreate" type="text" name="question'+number+'Text1" placeholder="Question Answer">\n<br>\n<input class="multipleChoice" type="radio" name="question'+number+'" placeholder="option2">\n<input class="questionPromptCreate" type="text" name="question'+number+'Text2" placeholder="Question Answer">\n<br>\n<input class="multipleChoice" type="radio" name="question'+number+'" placeholder="option3">\n<input class="questionPromptCreate" type="text" name="question'+number+'Text3" placeholder="Question Answer">\n<br>\n<input class="multipleChoice" type="radio" name="question'+number+'" placeholder="option4">\n<input class="questionPromptCreate" type="text" name="question'+number+'Text4" placeholder="Question Answer">\n<br>\n</div>\n</div>\n<br></br>';
+        output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"></div>'
+        output += '<button class="addButton" onclick="addMultipleChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
+        output += '<button class="addButton" onclick="delMultipleChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
+        return output;
     }
     if (type == "shortAnswer"){
         test.push({'questionType':'shortAnswer', 'number':number});
-        return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<div class="questionAnswers">\n<input class="shortAnswer" type="text" name="question'+number+'" placeholder="Short Answer">\n</div>\n</div>\n<br></br>';
+        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="shortAnswer" type="text" name="question'+number+'" placeholder="Short Answer"></div></div><br>';
     }
     if (type == "essayAnswer"){
         test.push({'questionType':'essayAnswer', 'number':number});
-        return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<div class="questionAnswers">\n<input class="essayAnswer" type="text" name="question'+number+'" placeholder="Essay Answer">\n</div>\n</div>\n<br></br>';
+        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="essayAnswer" type="text" name="question'+number+'" placeholder="Essay Answer"></div></div><br>';
     } 
     if (type == "matching"){
         test.push({'questionType':'matching', 'number':number});
-        return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<div class="questionAnswers">\n<input class="matchningPromptCreate" type="text" name="question'+number+'_1_1" placeholder="Question Prompt">=\n<input class="matchningPromptCreate" type="text" name="question'+number+'_1_2" placeholder="Question Answer">\n<br>\n<input class="matchningPromptCreate" type="text" name="question'+number+'_2_1" placeholder="Question Prompt">=\n<input class="matchningPromptCreate" type="text" name="question'+number+'_2_2" placeholder="Question Answer">\n<br>\n<input class="matchningPromptCreate" type="text" name="question'+number+'_3_1" placeholder="Question Prompt">=\n<input class="matchningPromptCreate" type="text" name="question'+number+'_3_2" placeholder="Question Answer">\n<br>\n<input class="matchningPromptCreate" type="text" name="question'+number+'_4_1" placeholder="Question Prompt">=\n<input class="matchningPromptCreate" type="text" name="question'+number+'_4_2" placeholder="Question Answer">\n</div>\n</div>\n<br></br>';
+        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="matchningPromptCreate" type="text" name="question'+number+'_1_1" placeholder="Question Prompt">=<input class="matchningPromptCreate" type="text" name="question'+number+'_1_2" placeholder="Question Answer"><br><input class="matchningPromptCreate" type="text" name="question'+number+'_2_1" placeholder="Question Prompt">=<input class="matchningPromptCreate" type="text" name="question'+number+'_2_2" placeholder="Question Answer"><br><input class="matchningPromptCreate" type="text" name="question'+number+'_3_1" placeholder="Question Prompt">=<input class="matchningPromptCreate" type="text" name="question'+number+'_3_2" placeholder="Question Answer"><br><input class="matchningPromptCreate" type="text" name="question'+number+'_4_1" placeholder="Question Prompt">=<input class="matchningPromptCreate" type="text" name="question'+number+'_4_2" placeholder="Question Answer"></div></div><br>';
     }
     if (type == "ranking"){
         test.push({'questionType':'ranking', 'number':number});
-        return '<div class="question">\n<span class="questionNumber">'+number+'</span>\n<input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt">\n<br>\n<div class="questionAnswers">\n<input class="rankingPromptCreate" type="text" name="question'+number+'_1" placeholder="Question Answer 1"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_2" placeholder="Question Answer 2"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_3" placeholder="Question Answer 3"><br>\n<input class="rankingPromptCreate" type="text" name="question'+number+'_4" placeholder="Question Answer 4"><br>\n</div>\n</div>\n<br>';
+        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><br><div class="questionAnswers" id="question'+number+'Answers"><input class="rankingPromptCreate" type="text" name="question'+number+'_1" placeholder="Question Answer 1"><br><input class="rankingPromptCreate" type="text" name="question'+number+'_2" placeholder="Question Answer 2"><br><input class="rankingPromptCreate" type="text" name="question'+number+'_3" placeholder="Question Answer 3"><br><input class="rankingPromptCreate" type="text" name="question'+number+'_4" placeholder="Question Answer 4"><br></div></div><br>';
     }
 }
 
@@ -75,6 +78,15 @@ function deleteLastQuestion() {
         x.style.display = "none";
     }
     
+}
+function addMultipleChoiceAnswer(answerDIV, number) {
+    var pre = document.createElement("div");
+    pre.innerHTML = '<input class="multipleChoice" type="radio" name="question'+number+'" placeholder="option'+answerDIV.children.length+'"><input class="questionPromptCreate" type="text" name="question'+number+'Text'+answerDIV.children.length+'" placeholder="Question Answer"><br>';
+    answerDIV.appendChild(pre)
+}
+
+function delMultipleChoiceAnswer(answerDIV) {
+    console.log(answerDIV.removeChild(answerDIV.lastChild));
 }
 
 function submit(){
