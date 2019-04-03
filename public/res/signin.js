@@ -52,6 +52,10 @@ function toggleSignIn() {
    }
   }
   document.getElementById('quickstart-sign-in').disabled = true;
+  var buttons = document.getElementsByClassName("signInRequired");
+  for(var i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = true;
+  }
 }
 function handleSignUp() {
   var email = document.getElementById('email').value;
@@ -140,7 +144,7 @@ function initApp() {
     } else {
       // User is signed out.
       // [START_EXCLUDE]
-      var buttons = document.getElementsByClassName("signInRequired").disabled = true;
+      var buttons = document.getElementsByClassName("signInRequired");
       for(var i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true;
       }
