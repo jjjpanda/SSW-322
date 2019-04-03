@@ -156,14 +156,14 @@ function initApp() {
       document.getElementById('quickstart-sign-in').textContent = 'Sign in';
       //document.getElementById('quickstart-account-details').textContent = 'null';
       // [END_EXCLUDE]
+      document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+      document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     }
     // [START_EXCLUDE]
     document.getElementById('quickstart-sign-in').disabled = false;
     // [END_EXCLUDE]
   });
   // [END authstatelistener]
-  document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-  document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
   document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
 window.onload = function() {
