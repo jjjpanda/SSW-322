@@ -10,8 +10,8 @@ function addQuestion(type, number) {
     if (type == "multipleChoice"){
         test.push({'questionType':'multipleChoice', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"></div>'
-        output += '<button class="answerButton" onclick="addMultipleChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
-        output += '<button class="answerButton" onclick="delMultipleChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
+        output += '<button class="addButton" onclick="addMultipleChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
+        output += '<button class="addButton" onclick="delMultipleChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
         return output;
     }
     if (type == "shortAnswer"){
@@ -25,15 +25,15 @@ function addQuestion(type, number) {
     if (type == "matching"){
         test.push({'questionType':'matching', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"></div>'
-        output += '<button class="answerButton" onclick="addMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
-        output += '<button class="answerButton" onclick="delMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
+        output += '<button class="addButton" onclick="addMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
+        output += '<button class="addButton" onclick="delMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
         return output;
     }
     if (type == "ranking"){
         test.push({'questionType':'ranking', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><br><div class="questionAnswers" id="question'+number+'Answers"></div>';
-        output += '<button class="answerButton" onclick="addRankingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
-        output += '<button class="answerButton" onclick="delRankingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
+        output += '<button class="addButton" onclick="addMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
+        output += '<button class="addButton" onclick="delMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
         return output;
     }
 }
@@ -106,13 +106,13 @@ function delMatchingChoiceAnswer(answerDIV) {
     answerDIV.removeChild(answerDIV.lastChild);
 }
 
-function addRankingChoiceAnswer(answerDIV, number) {
+function addMatchingChoiceAnswer(answerDIV, number) {
     var pre = document.createElement("div");
     pre.innerHTML = '<input class="rankingPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'" placeholder="Question Answer '+(answerDIV.children.length+1)+'">';
     answerDIV.appendChild(pre)
 }
 
-function delRankingChoiceAnswer(answerDIV) {
+function delMatchingChoiceAnswer(answerDIV) {
     answerDIV.removeChild(answerDIV.lastChild);
 }
 
@@ -121,22 +121,28 @@ function submit(){
         var prompt = document.getElementsByName("question"+question["number"]+"Prompt")[0].value;
         question['prompt'] = prompt;
         if (question["questionType"] === "trueFalse"){
-           
+            choices = document.getElementsByName("question"+question['number']);
+            if( document.getElementsByName("question"+question['number'])[0].checked){
+               question["answer"] = true; 
+            }
+            if(document.getElementsByName("question"+question['number'])[1].checked){
+                question["answer"] = false;
+            }
         }
         if (question["questionType"] === "multipleChoice"){
-
+            choices = document.getElementById("question"+question["number"]+"Answers").children
         }
         if (question["questionType"] === "shortAnswer"){
-       
+            question["answer"] = document.getElementsByName("question"+question['number'])[0].value;
         }
         if (question["questionType"] === "essayAnswer"){
-        
+            question["answer"] = document.getElementsByName("question"+question['number'])[0].value;
         } 
         if (question["questionType"] === "matching"){
-
+            choices = document.getElementById("question"+question["number"]+"Answers").children
         }
         if (question["questionType"] === "ranking"){
-           
+            choices = document.getElementById("question"+question["number"]+"Answers").children
         }
     }
     console.log(test)
