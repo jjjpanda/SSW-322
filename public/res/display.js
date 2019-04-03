@@ -21,17 +21,26 @@ function displayQuestion(type, number, prompt, answers) {
     if (type == "matching"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="matchingTable"><th>Choices</th>';
         for (i = 0; i < answers.length; i++) {
-            output += '<tr><td>'+(i+1)+') '+answers[i][0]+'</td></tr>';
+            output += '<tr><td>'+String.fromCharCode(65 + i)+') '+answers[i][0]+'</td></tr>';
         }
         output += '</table>';
         for (i = 0; i < answers.length; i++) {
-            output += '<input class="matching" type="text" name="question'+number+'_'+(i+1)+'"> '+answers[i][1]+'<br>';
+            output += '<input class="matching" type="text" name="question'+number+'_'+(i+1)+'"> = '+answers[i][1]+'<br>';
         }        
         output += '</div></div><br>';
         return output;
     }
     if (type == "ranking"){
-        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="rankingTable"><th>Choices</th><tr><td>A Answer 1</td></tr><tr><td>B Answer 2</td></tr><tr><td>C Answer 3</td></tr><tr><td>D Answer 4</td></tr></table><input class="ranking" type="text" name="question6_1"><br><input class="ranking" type="text" name="question6_2"><br><input class="ranking" type="text" name="question6_3"><br><input class="ranking" type="text" name="question6_4"><br></div></div><br>'
+        output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="rankingTable"><th>Choices</th>';
+        for (i = 0; i < answers.length; i++) {
+            output += '<tr><td>'+String.fromCharCode(65 + i)+') '+answers[i]+'</td></tr>';
+        }
+        output += '</table>';
+        for (i = 0; i < answers.length; i++) {
+            output += (i+1)+') <input class="ranking" type="text" name="question'+number+'_'+(i+1)+'"><br>'
+        }
+        output += '</div></div><br>';
+        return output;
     }
 }
 
