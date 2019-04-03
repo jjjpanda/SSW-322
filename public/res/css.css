@@ -27,6 +27,11 @@ html{
     color:white;
  }
 
+ button:disabled {
+    background: #F5F5F5;
+    color : #C3C3C3;
+}
+
 .search {
     background-color: gray;
     border: none;
@@ -38,14 +43,14 @@ html{
     font-family: Arial, Helvetica, sans-serif;
     -webkit-transition: width 0.8s ease-in-out;
     transition: width 0.8s ease-in-out;
-    animation: 
+    animation:
       typing 3.5s steps(40, end),
       blinking-cursor .5s step-end infinite;
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .15em solid orange; /* The typwriter cursor */
 }
 
-.search:focus { 
+.search:focus {
     width: 150px;
  }
 
@@ -69,13 +74,13 @@ html{
     background-color: blue;
     color:white;
  }
-  
+
   /* The typing effect */
   @keyframes typing {
     from { width: 0 }
     to { width: 100% }
   }
-  
+
   /* The typewriter cursor effect */
   @keyframes blinking-cursor {
     from, to { border-color: transparent }
