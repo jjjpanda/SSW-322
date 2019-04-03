@@ -21,7 +21,7 @@ function addQuestion(type, number) {
     if (type == "essayAnswer"){
         test.push({'questionType':'essayAnswer', 'number':number});
         return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="essayAnswer" type="text" name="question'+number+'" placeholder="Essay Answer"></div></div><br>';
-    } 
+    }
     if (type == "matching"){
         test.push({'questionType':'matching', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"></div>'
@@ -83,7 +83,7 @@ function deleteLastQuestion() {
         hideDeleteButton()
         x.style.display = "none";
     }
-    
+
 }
 
 function addMultipleChoiceAnswer(answerDIV, number) {
@@ -122,8 +122,8 @@ function submit(){
         question['prompt'] = prompt;
         if (question["questionType"] === "trueFalse"){
             choices = document.getElementsByName("question"+question['number']);
-            if( document.getElementsByName("question"+question['number'])[0].checked){
-               question["answer"] = true; 
+            if(document.getElementsByName("question"+question['number'])[0].checked){
+               question["answer"] = true;
             }
             if(document.getElementsByName("question"+question['number'])[1].checked){
                 question["answer"] = false;
@@ -140,7 +140,7 @@ function submit(){
         }
         if (question["questionType"] === "essayAnswer"){
             question["answer"] = document.getElementsByName("question"+question['number'])[0].value;
-        } 
+        }
         if (question["questionType"] === "matching"){
             choices = document.getElementById("question"+question["number"]+"Answers").children
         }
