@@ -42,10 +42,3 @@ function writeToScreen(text) {
 	pre.innerHTML = text;
     output.appendChild(pre);
 }
-
-console.log(displayQuestion('trueFalse', 1, "test1"))
-console.log(displayQuestion('multipleChoice', 2, "test2", ["answer1", "answer2", "answer3", "answer4", "answer5", "answer6", "answer7"]))
-console.log(displayQuestion('shortAnswer', 3, "test3"))
-console.log(displayQuestion('essayAnswer', 4, "test4"))
-console.log(displayQuestion('matching', 5, "test5", [["prompt 1", "answer 1"], ["prompt 2", "answer 2"]]))
-console.log(displayQuestion('ranking', 6, "test6"))
