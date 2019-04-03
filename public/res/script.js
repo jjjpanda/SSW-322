@@ -32,8 +32,8 @@ function addQuestion(type, number) {
     if (type == "ranking"){
         test.push({'questionType':'ranking', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><br><div class="questionAnswers" id="question'+number+'Answers"></div>';
-        output += '<button class="addButton" onclick="addMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
-        output += '<button class="addButton" onclick="delMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
+        output += '<button class="addButton" onclick="addRankingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
+        output += '<button class="addButton" onclick="delRankingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
         return output;
     }
 }
@@ -102,11 +102,11 @@ function addMatchingChoiceAnswer(answerDIV, number) {
     answerDIV.appendChild(pre)
 }
 
-function delMatchingChoiceAnswer(answerDIV) {
+function delRankingChoiceAnswer(answerDIV) {
     answerDIV.removeChild(answerDIV.lastChild);
 }
 
-function addMatchingChoiceAnswer(answerDIV, number) {
+function addRankingChoiceAnswer(answerDIV, number) {
     var pre = document.createElement("div");
     pre.innerHTML = '<input class="rankingPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'" placeholder="Question Answer '+(answerDIV.children.length+1)+'">';
     answerDIV.appendChild(pre)
@@ -134,8 +134,11 @@ function submit(){
             question['answer'] = [];
             question['answerChoices'] = [];
             for(choice of choices){
-                question['answer'] = choice.getElementsByName("question"+question['number'])[0];
                 question["answerChoices"].push(choice.getElementsByClassName("questionPromptCreate")[0].value);
+            }
+            for (i = 0; i < document.getElementsByName("question"+question['number']).length; i++) {
+                if(document.getElementsByName("question"+question['number'])[i].checked)
+                    question["answer"] = i;
             }
         }
         if (question["questionType"] === "shortAnswer"){
@@ -162,12 +165,14 @@ function submit(){
             answers = document.getElementById("question"+question["number"]+"Answers").getElementsByClassName("rankingPromptCreate")
             question['answer'] = [];
             for(answer of answers){
-                question["answer"].push(choice.value);
+                question["answer"].push(answer.value);
             }
         }
     }
+    localStorage.setItem("demo", document.getElementById("testName").value); //temp solution until we get JSON working
+    localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test)); //temp solution until we get JSON working
     console.log(test)
-    //window.location.href ='myTests.html';
+    window.location.href ='displayTest.html';
 }
 
 function changeType(type) {

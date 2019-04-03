@@ -2,31 +2,5 @@
 <link rel = "stylesheet" type="text/css" href="res/css.css"/>
 <script type="text/javascript" src="res/display.js"></script>
 
-<button onclick='writeToScreen(displayQuestion("trueFalse", 1, "test1"))'>testtruefalse</button>
-<button onclick='writeToScreen(displayQuestion("multipleChoice", 2, "test2", ["answer1", "answer2", "answer3", "answer4", "answer5", "answer6", "answer7"]))'>testmultiplechoice</button>
-<button onclick='writeToScreen(displayQuestion("shortAnswer", 3, "test3"))'>testshort</button>
-<button onclick='writeToScreen(displayQuestion("essayAnswer", 4, "test4"))'>testessay</button>
-<button onclick='writeToScreen(displayQuestion("matching", 5, "test5", [["prompt 1", "answer 1"], ["prompt 2", "answer 2"]]))'>testmatching</button>
-<button onclick='writeToScreen(displayQuestion("ranking", 6, "test6", ["answer1", "answer2", "answer3", "answer4", "answer5", "answer6", "answer7"]))'>testranking</button>
-
+<h1 id="testTitle"></h1>
 <div id="questionDiv"></div>
-
-<div class="question">
-    <span class="questionNumber">6</span>
-    <span class="questionPromptDisplay">Rank the Choices</span>
-    <div class="questionAnswers">
-            <table class="rankingTable">
-                <th>Choices</th>
-                <tr><td>A Answer 1</td></tr>
-                <tr><td>B Answer 2</td></tr>
-                <tr><td>C Answer 3</td></tr>
-                <tr><td>D Answer 4</td></tr>
-            </table>
-
-            <input class="ranking" type="text" name="question6_1"><br>
-            <input class="ranking" type="text" name="question6_2"><br>
-            <input class="ranking" type="text" name="question6_3"><br>
-            <input class="ranking" type="text" name="question6_4"><br>
-        </div>
-</div>
-<br>
