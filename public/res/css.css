@@ -81,3 +81,7 @@ html{
     from, to { border-color: transparent }
     50% { border-color: orange; }
   }
+
+  .typeSelected {
+    background-color:green;
+  }
