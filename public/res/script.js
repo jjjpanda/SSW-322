@@ -32,8 +32,8 @@ function addQuestion(type, number) {
     if (type == "ranking"){
         test.push({'questionType':'ranking', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><br><div class="questionAnswers" id="question'+number+'Answers"></div>';
-        output += '<button class="addButton" onclick="addMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
-        output += '<button class="addButton" onclick="delMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
+        output += '<button class="addButton" onclick="addRankingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
+        output += '<button class="addButton" onclick="delRankingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
         return output;
     }
 }
@@ -106,13 +106,13 @@ function delMatchingChoiceAnswer(answerDIV) {
     answerDIV.removeChild(answerDIV.lastChild);
 }
 
-function addMatchingChoiceAnswer(answerDIV, number) {
+function addRankingChoiceAnswer(answerDIV, number) {
     var pre = document.createElement("div");
     pre.innerHTML = '<input class="rankingPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'" placeholder="Question Answer '+(answerDIV.children.length+1)+'">';
     answerDIV.appendChild(pre)
 }
 
-function delMatchingChoiceAnswer(answerDIV) {
+function delRankingChoiceAnswer(answerDIV) {
     answerDIV.removeChild(answerDIV.lastChild);
 }
 
