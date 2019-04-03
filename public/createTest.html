@@ -6,11 +6,13 @@
 <button id="surveyTypeButton" onclick="changeType('survey')"> Survey </button>
 
 <div id="questionDiv"></div>
-<button id="deleteButton" style="display:none" onclick="deleteLastQuestion()"> Delete Last Question </button>
+<button id="deleteButton" style="display:none" class = "button" onclick="deleteLastQuestion()"> Delete Last Question </button>
+<button id="submitButton" style="display:none" class = "button" onclick="submit()"> Create Test </button>
+
 <p></p>
-Add Question: <button onclick="writeQuestion('trueFalse')"> True/False </button>
-<button onclick="writeQuestion('multipleChoice')"> Multiple Choice </button>
-<button onclick="writeQuestion('shortAnswer')"> Short Answer </button>
-<button onclick="writeQuestion('essayAnswer')"> Essay Answer </button>
-<button onclick="writeQuestion('matching')"> Matching </button>
-<button onclick="writeQuestion('ranking')"> Ranking </button>
+Add Question: <button class = "button" onclick="writeQuestion('trueFalse')"> True/False </button>
+<button class = "button" onclick="writeQuestion('multipleChoice')"> Multiple Choice </button>
+<button class = "button" onclick="writeQuestion('shortAnswer')"> Short Answer </button>
+<button class = "button" onclick="writeQuestion('essayAnswer')"> Essay Answer </button>
+<button class = "button" onclick="writeQuestion('matching')"> Matching </button>
+<button class = "button" onclick="writeQuestion('ranking')"> Ranking </button>

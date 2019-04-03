@@ -41,6 +41,10 @@ function writeToScreen(text) {
 function writeQuestion(type) {
     writeToScreen(addQuestion(type, questionNumber));
     questionNumber++;
+    var x = document.getElementById("submitButton");
+    if(questionNumber > 1){
+        x.style.display = "block";
+    }
     console.log(test)
 }
 
@@ -65,8 +69,17 @@ function deleteLastQuestion() {
         test.pop();
         questionNumber--;
     }
-    if (questionNumber == 1)
+    var x = document.getElementById("submitButton");
+    if (questionNumber == 1){
         hideDeleteButton()
+        x.style.display = "none";
+    }
+    
+}
+
+function submit(){
+    
+    window.location.href ='myTests.html';
 }
 
 function changeType(type) {
