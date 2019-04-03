@@ -178,7 +178,7 @@ function submit(){
 function changeType(type) {
     if (type == 'test' && formType != 'test') {
         formType = type;
-        test = document.getElementById("testTypeButton").classList.add("typeSelected");
+        document.getElementById("testTypeButton").classList.add("typeSelected");
         document.getElementById("surveyTypeButton").classList.remove("typeSelected");
         //test form code here
     }
