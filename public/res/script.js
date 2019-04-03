@@ -143,15 +143,15 @@ function submit(){
             question["answer"] = document.getElementsByName("question"+question['number'])[0].value;
         }
         if (question["questionType"] === "matching"){
-            choices = document.getElementById("question"+question["number"]+"Answers").children
+            choices = document.getElementById("question"+question["number"]+"Answers").getElementsByClassName("matchningPromptCreate")
             question['answer'] = [];
             i = 0;
             for(choice of choices){
                 if( i % 2 == 0){
-                    question["answer"].push({ "prompt":choice.getElementsByClassName("matchningPromptCreate")[0].value});
+                    question["answer"].push({ "prompt":choice.value});
                 }
                 if( i% 2 == 1){
-                    question["answer"][(i-1)/2]["answer"] = choice.getElementsByClassName("matchningPromptCreate")[0].value;
+                    question["answer"][(i-1)/2]["answer"] = choice.value;
                 }
                 i++;
             }
