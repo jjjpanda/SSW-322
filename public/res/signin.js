@@ -130,6 +130,8 @@ function initApp() {
       // User is signed in.
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
+      var signInDiv = document.getElementById("userLoginInputs");
+      signInDiv.style.display = "none";
       // [START_EXCLUDE]
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
       document.getElementById('quickstart-sign-in').textContent = 'Sign out';
