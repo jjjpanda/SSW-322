@@ -140,6 +140,7 @@ function initApp() {
     } else {
       // User is signed out.
       // [START_EXCLUDE]
+      var x = document.getElementsByClassName("signInRequired");
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
       document.getElementById('quickstart-sign-in').textContent = 'Sign in';
       //document.getElementById('quickstart-account-details').textContent = 'null';
