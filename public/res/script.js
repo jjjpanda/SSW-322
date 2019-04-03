@@ -24,11 +24,17 @@ function addQuestion(type, number) {
     } 
     if (type == "matching"){
         test.push({'questionType':'matching', 'number':number});
-        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="matchningPromptCreate" type="text" name="question'+number+'_1_1" placeholder="Question Prompt">=<input class="matchningPromptCreate" type="text" name="question'+number+'_1_2" placeholder="Question Answer"><br><input class="matchningPromptCreate" type="text" name="question'+number+'_2_1" placeholder="Question Prompt">=<input class="matchningPromptCreate" type="text" name="question'+number+'_2_2" placeholder="Question Answer"><br><input class="matchningPromptCreate" type="text" name="question'+number+'_3_1" placeholder="Question Prompt">=<input class="matchningPromptCreate" type="text" name="question'+number+'_3_2" placeholder="Question Answer"><br><input class="matchningPromptCreate" type="text" name="question'+number+'_4_1" placeholder="Question Prompt">=<input class="matchningPromptCreate" type="text" name="question'+number+'_4_2" placeholder="Question Answer"></div></div><br>';
+        output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"></div>'
+        output += '<button class="addButton" onclick="addMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
+        output += '<button class="addButton" onclick="delMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
+        return output;
     }
     if (type == "ranking"){
         test.push({'questionType':'ranking', 'number':number});
-        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><br><div class="questionAnswers" id="question'+number+'Answers"><input class="rankingPromptCreate" type="text" name="question'+number+'_1" placeholder="Question Answer 1"><br><input class="rankingPromptCreate" type="text" name="question'+number+'_2" placeholder="Question Answer 2"><br><input class="rankingPromptCreate" type="text" name="question'+number+'_3" placeholder="Question Answer 3"><br><input class="rankingPromptCreate" type="text" name="question'+number+'_4" placeholder="Question Answer 4"><br></div></div><br>';
+        output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><br><div class="questionAnswers" id="question'+number+'Answers"></div>';
+        output += '<button class="addButton" onclick="addMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
+        output += '<button class="addButton" onclick="delMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
+        return output;
     }
 }
 
@@ -79,6 +85,7 @@ function deleteLastQuestion() {
     }
     
 }
+
 function addMultipleChoiceAnswer(answerDIV, number) {
     var pre = document.createElement("div");
     pre.innerHTML = '<input class="multipleChoice" type="radio" name="question'+number+'" placeholder="option'+answerDIV.children.length+'"><input class="questionPromptCreate" type="text" name="question'+number+'Text'+answerDIV.children.length+'" placeholder="Question Answer"><br>';
@@ -86,7 +93,27 @@ function addMultipleChoiceAnswer(answerDIV, number) {
 }
 
 function delMultipleChoiceAnswer(answerDIV) {
-    console.log(answerDIV.removeChild(answerDIV.lastChild));
+    answerDIV.removeChild(answerDIV.lastChild);
+}
+
+function addMatchingChoiceAnswer(answerDIV, number) {
+    var pre = document.createElement("div");
+    pre.innerHTML = '<input class="matchningPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'_1" placeholder="Question Prompt"> = <input class="matchningPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'_2" placeholder="Question Answer"></input>';
+    answerDIV.appendChild(pre)
+}
+
+function delMatchingChoiceAnswer(answerDIV) {
+    answerDIV.removeChild(answerDIV.lastChild);
+}
+
+function addMatchingChoiceAnswer(answerDIV, number) {
+    var pre = document.createElement("div");
+    pre.innerHTML = '<input class="rankingPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'" placeholder="Question Answer '+(answerDIV.children.length+1)+'">';
+    answerDIV.appendChild(pre)
+}
+
+function delMatchingChoiceAnswer(answerDIV) {
+    answerDIV.removeChild(answerDIV.lastChild);
 }
 
 function submit(){
