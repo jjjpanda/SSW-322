@@ -132,8 +132,10 @@ function submit(){
         if (question["questionType"] === "multipleChoice"){
             choices = document.getElementById("question"+question["number"]+"Answers").children
             question['answer'] = [];
+            question['answerChoices'] = [];
             for(choice of choices){
-                question["answer"].push(choice.getElementsByClassName("questionPromptCreate")[0].value);
+                question['answer'] = choice.getElementsByName("question"+question['number'])[0];
+                question["answerChoices"].push(choice.getElementsByClassName("questionPromptCreate")[0].value);
             }
         }
         if (question["questionType"] === "shortAnswer"){
@@ -157,10 +159,10 @@ function submit(){
             }
         }
         if (question["questionType"] === "ranking"){
-            answers = document.getElementById("question"+question["number"]+"Answers").children
+            answers = document.getElementById("question"+question["number"]+"Answers").getElementsByClassName("rankingPromptCreate")
             question['answer'] = [];
             for(answer of answers){
-                question["answer"].push(choice.getElementsByClassName("rankingPromptCreate")[0].value);
+                question["answer"].push(choice.value);
             }
         }
     }
