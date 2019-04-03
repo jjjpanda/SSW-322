@@ -10,7 +10,6 @@
     $("#nav").load("nav.html");
     </script>
 
-
     <input id="testName" type="text" placeholder="Name"></div>
     <button id="testTypeButton" class="typeSelected" onclick="changeType('test')"> Test </button>
     <button id="surveyTypeButton" onclick="changeType('survey')"> Survey </button>
@@ -20,7 +19,8 @@
     <button id="submitButton" style="display:none" class = "button" onclick="submit()"> Create Test </button>
 
     <p></p>
-    Add Question: <button class = "button" onclick="writeQuestion('trueFalse')"> True/False </button>
+    <h3>Add Question: </h3>
+    <button class = "button" onclick="writeQuestion('trueFalse')"> True/False </button>
     <button class = "button" onclick="writeQuestion('multipleChoice')"> Multiple Choice </button>
     <button class = "button" onclick="writeQuestion('shortAnswer')"> Short Answer </button>
     <button class = "button" onclick="writeQuestion('essayAnswer')"> Essay Answer </button>
