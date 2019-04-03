@@ -78,8 +78,30 @@ function deleteLastQuestion() {
 }
 
 function submit(){
-    
-    window.location.href ='myTests.html';
+    for(question of test){
+        var prompt = document.getElementsByName("question"+question["number"]+"Prompt")[0].value;
+        question['prompt'] = prompt;
+        if (question["questionType"] === "trueFalse"){
+           
+        }
+        if (question["questionType"] === "multipleChoice"){
+
+        }
+        if (question["questionType"] === "shortAnswer"){
+       
+        }
+        if (question["questionType"] === "essayAnswer"){
+        
+        } 
+        if (question["questionType"] === "matching"){
+
+        }
+        if (question["questionType"] === "ranking"){
+           
+        }
+    }
+    console.log(test)
+    //window.location.href ='myTests.html';
 }
 
 function changeType(type) {
