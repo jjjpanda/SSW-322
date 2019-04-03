@@ -35,6 +35,14 @@ function displayQuestion(type, number, prompt, answers) {
     }
 }
 
+function writeToScreen(text) {
+    output = document.getElementById("questionDiv");
+    var pre = document.createElement("p");
+	pre.style.wordWrap = "break-word";
+	pre.innerHTML = text;
+    output.appendChild(pre);
+}
+
 console.log(displayQuestion('trueFalse', 1, "test1"))
 console.log(displayQuestion('multipleChoice', 2, "test2", ["answer1", "answer2", "answer3", "answer4", "answer5", "answer6", "answer7"]))
 console.log(displayQuestion('shortAnswer', 3, "test3"))
