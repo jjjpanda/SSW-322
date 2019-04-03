@@ -21,7 +21,7 @@ function addQuestion(type, number) {
     if (type == "essayAnswer"){
         test.push({'questionType':'essayAnswer', 'number':number});
         return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="essayAnswer" type="text" name="question'+number+'" placeholder="Essay Answer"></div></div><br>';
-    } 
+    }
     if (type == "matching"){
         test.push({'questionType':'matching', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"></div>'
@@ -83,7 +83,7 @@ function deleteLastQuestion() {
         hideDeleteButton()
         x.style.display = "none";
     }
-    
+
 }
 
 function addMultipleChoiceAnswer(answerDIV, number) {
@@ -122,8 +122,8 @@ function submit(){
         question['prompt'] = prompt;
         if (question["questionType"] === "trueFalse"){
             choices = document.getElementsByName("question"+question['number']);
-            if( document.getElementsByName("question"+question['number'])[0].checked){
-               question["answer"] = true; 
+            if(document.getElementsByName("question"+question['number'])[0].checked){
+               question["answer"] = true;
             }
             if(document.getElementsByName("question"+question['number'])[1].checked){
                 question["answer"] = false;
@@ -131,8 +131,9 @@ function submit(){
         }
         if (question["questionType"] === "multipleChoice"){
             choices = document.getElementById("question"+question["number"]+"Answers").children
+            question['answer'] = [];
             for(choice of choices){
-                question["answer"] = choice.getElementsByClassName("questionPromptCreate")[0].value;
+                question["answer"].push(choice.getElementsByClassName("questionPromptCreate")[0].value);
             }
         }
         if (question["questionType"] === "shortAnswer"){
@@ -140,12 +141,27 @@ function submit(){
         }
         if (question["questionType"] === "essayAnswer"){
             question["answer"] = document.getElementsByName("question"+question['number'])[0].value;
-        } 
+        }
         if (question["questionType"] === "matching"){
             choices = document.getElementById("question"+question["number"]+"Answers").children
+            question['answer'] = [];
+            i = 0;
+            for(choice of choices){
+                if( i % 2 == 0){
+                    question["answer"].push({ "prompt":choice.getElementsByClassName("matchningPromptCreate")[0].value});
+                }
+                if( i% 2 == 1){
+                    question["answer"][(i-1)/2]["answer"] = choice.getElementsByClassName("matchningPromptCreate")[0].value;
+                }
+                i++;
+            }
         }
         if (question["questionType"] === "ranking"){
-            choices = document.getElementById("question"+question["number"]+"Answers").children
+            answers = document.getElementById("question"+question["number"]+"Answers").children
+            question['answer'] = [];
+            for(answer of answers){
+                question["answer"].push(choice.getElementsByClassName("rankingPromptCreate")[0].value);
+            }
         }
     }
     console.log(test)
