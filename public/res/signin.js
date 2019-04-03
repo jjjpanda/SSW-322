@@ -51,10 +51,10 @@ function toggleSignIn() {
     // [END authwithemail]
    }
   }
-  document.getElementById('quickstart-sign-in').disabled = true;
+  document.getElementById('quickstart-sign-in');
   var buttons = document.getElementsByClassName("signInRequired");
   for(var i = 0; i < buttons.length; i++) {
-    buttons[i].disabled = true;
+    buttons[i].disabled = false;
   }
 }
 function handleSignUp() {
@@ -137,6 +137,10 @@ function initApp() {
       var signInDiv = document.getElementById("userLoginInputs");
       signInDiv.style.display = "none";
       // [START_EXCLUDE]
+      var buttons = document.getElementsByClassName("signInRequired");
+      for(var i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false;
+      }
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
       document.getElementById('quickstart-sign-in').textContent = 'Sign out';
       //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
