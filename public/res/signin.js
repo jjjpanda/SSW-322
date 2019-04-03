@@ -3,7 +3,7 @@ function toggleSignIn() {
   if (firebase.auth().currentUser) {
     // [START signout]
     firebase.auth().signOut();
-   signInDiv.style.display = "none";
+   signInDiv.style.display = "block";
     // [END signout]
   } else {
     var email = document.getElementById('email').value;
@@ -21,7 +21,7 @@ function toggleSignIn() {
         }
         // [END_EXCLUDE]
      });
-    signInDiv.style.display = "block";
+    signInDiv.style.display = "none";
     }
     else{
     if (email.length < 4) {
