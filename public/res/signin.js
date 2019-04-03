@@ -134,6 +134,7 @@ function initApp() {
       // User is signed in.
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
+      document.getElementById('quickstart-account-details').textContent = uid;
       var signInDiv = document.getElementById("userLoginInputs");
       signInDiv.style.display = "none";
       // [START_EXCLUDE]
@@ -156,6 +157,7 @@ function initApp() {
       document.getElementById('quickstart-sign-in').textContent = 'Sign in';
       //document.getElementById('quickstart-account-details').textContent = 'null';
       // [END_EXCLUDE]
+      document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
       document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
       document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     }
@@ -164,7 +166,7 @@ function initApp() {
     // [END_EXCLUDE]
   });
   // [END authstatelistener]
-  document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+
 }
 window.onload = function() {
   initApp();
