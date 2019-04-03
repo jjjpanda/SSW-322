@@ -131,6 +131,9 @@ function submit(){
         }
         if (question["questionType"] === "multipleChoice"){
             choices = document.getElementById("question"+question["number"]+"Answers").children
+            for(choice of choices){
+                question["answer"] = choice.getElementsByClassName("questionPromptCreate")[0].value;
+            }
         }
         if (question["questionType"] === "shortAnswer"){
             question["answer"] = document.getElementsByName("question"+question['number'])[0].value;
