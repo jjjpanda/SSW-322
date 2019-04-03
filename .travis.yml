@@ -1,6 +1,4 @@
 language: node_js
-cache:
-  - npm
 node_js:
  - "6.0"
 script:
@@ -8,4 +6,4 @@ script:
 install:
 - npm install -g firebase-tools
 after_success:
-- firebase deploy --token $FIREBASE_TOKEN
+- firebase deploy --token $FIREBASE_TOKEN --project ssw322survey
