@@ -173,8 +173,7 @@ function initApp() {
   // [END authstatelistener]
 
 }
-console.log('Hi');
 window.onload = function() {
-  console.log('On load');
+  alert('On load');
   initApp();
 };
