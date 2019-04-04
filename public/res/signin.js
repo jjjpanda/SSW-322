@@ -3,6 +3,7 @@ function toggleSignIn() {
   if (firebase.auth().currentUser) {
     // [START signout]
     firebase.auth().signOut();
+    alert('Signing out')
    signInDiv.style.display = "block";
     // [END signout]
   } else {
