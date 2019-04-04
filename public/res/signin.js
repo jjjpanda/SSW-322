@@ -131,7 +131,11 @@ function initApp() {
   // Listening for auth state changes.
   // [START authstatelistener]
   firebase.auth().onAuthStateChanged(function(user) {
+    document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+    document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+    document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     if (user) {
+      console.log('Signed in');
       // User is signed in.
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
@@ -148,6 +152,7 @@ function initApp() {
       //document.getElementById('quickstart-account-details').textContent = JSON.stringify(user, null, '  ');
       // [END_EXCLUDE]
     } else {
+      console.log('Not signed in');
       // User is signed out.
       // [START_EXCLUDE]
       var buttons = document.getElementsByClassName("signInRequired");
@@ -158,9 +163,6 @@ function initApp() {
       document.getElementById('quickstart-sign-in').textContent = 'Sign in';
       //document.getElementById('quickstart-account-details').textContent = 'null';
       // [END_EXCLUDE]
-      document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
-      document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-      document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     }
     // [START_EXCLUDE]
     console.log('Enabling Sign in button');
