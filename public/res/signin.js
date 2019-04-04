@@ -163,6 +163,7 @@ function initApp() {
       document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     }
     // [START_EXCLUDE]
+    console.log('Enabling Sign in button');
     document.getElementById('quickstart-sign-in').disabled = false;
     // [END_EXCLUDE]
   });
