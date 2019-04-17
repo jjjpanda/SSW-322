@@ -86,9 +86,6 @@ function handleSignUp() {
   });
   // [END createwithemail]
 }
-/**
- * Sends an email verification to the user.
- */
 function sendEmailVerification() {
   // [START sendemailverification]
   firebase.auth().currentUser.sendEmailVerification().then(function() {
