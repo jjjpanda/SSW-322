@@ -125,7 +125,7 @@ function sendPasswordReset() {
  *    out, and that is where we update the UI.
  */
 function initApp() {
-  alert('On load');
+  //alert('On load');
   // Listening for auth state changes.
   // [START authstatelistener]
   firebase.auth().onAuthStateChanged(function(user) {
@@ -170,6 +170,6 @@ function initApp() {
   // [END authstatelistener]
 
 }
-window.onload = function() {
+document.onload = function() {
   initApp();
 };
