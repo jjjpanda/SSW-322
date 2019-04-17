@@ -1,6 +1,6 @@
 var test;
 
-window.onload = function() {
+document.getElementById("logo").onload = function() {
     testname = localStorage.getItem("demo")
     test = JSON.parse(localStorage.getItem(testname))
     document.getElementById("testTitle").innerText=testname
@@ -44,7 +44,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
     }
     if (type == "essayAnswer"){
         return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="essayAnswer" type="text" name="question'+number+'" value="'+answer+'"></div></div><br>'
-    } 
+    }
     if (type == "matching"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="matchingTable"><th>Choices</th>';
         rand = [].concat(answer);
@@ -55,7 +55,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
         output += '</table>';
         for (i = 0; i < answer.length; i++) {
             output += '<input class="matching" type="text" name="question'+number+'_'+(i+1)+'" value="'+answer[i].prompt+'"> = '+answer[i].answer+'<br>';
-        }        
+        }
         output += '</div></div><br>';
         return output;
     }
