@@ -12,7 +12,7 @@ html{
 }
 
 .button {
-    background-color: gray;
+    background-color: rgb(83, 142, 237);
     border: none;
     color: black;
     padding: 16px 32px;
@@ -23,7 +23,7 @@ html{
 }
 
 .button:hover {
-    background-color: blue;
+    background-color: cyan;
     color:white;
  }
 
@@ -60,7 +60,7 @@ html{
  }
 
 .addButton{
-    background-color: gray;
+    background-color: blue;
     border: none;
     color: black;
     text-align: center;
