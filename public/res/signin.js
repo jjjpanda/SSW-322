@@ -170,6 +170,6 @@ function initApp() {
   // [END authstatelistener]
 
 }
-document.onload = function() {
+document.getElementById("logo").onload = function() {
   initApp();
 };
