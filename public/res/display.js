@@ -1,6 +1,7 @@
 var test;
 
-document.getElementById("logo").onload = function() {
+window.onload = function() {
+  console.log("pepe is a meme")
     testname = localStorage.getItem("demo")
     test = JSON.parse(localStorage.getItem(testname))
     document.getElementById("testTitle").innerText=testname
