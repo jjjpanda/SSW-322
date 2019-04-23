@@ -79,7 +79,6 @@ function displayQuestion(type, number, prompt, answers, answer) {
 function writeToScreen(text) {
     output = document.getElementById("questionDiv");
     var pre = document.createElement("p");
-	pre.style.wordWrap = "break-word";
 	pre.innerHTML = text;
     output.appendChild(pre);
 }
