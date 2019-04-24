@@ -15,7 +15,7 @@ const firestore = firebase.firestore();
 function updateDatabase(){
   testName = document.getElementById("testName").value;
   newTestDBPath = "questionnaires/tests/" + currentUser.uid + "/" + testName + "/questions/";
-  for(int x = 0; x<numberOfQuestions; x++){
+  for(x = 0; x<numberOfQuestions; x++){
     firestore.doc(newTestDBPath+ questionName +"/").add({
       questionType: questionType,
       prompt: prompt,
