@@ -98,5 +98,3 @@ h3{
   .typeSelected {
     background-color:green;
   }
-
-<link rel="stylesheet" type="text/css" href='site.css?v=<%= DateTime.Now.Ticks %>' />
