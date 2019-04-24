@@ -5,7 +5,7 @@ window.onload = function() {
 }
 
 function listTestsSurveys() {
-    for ( var i = 1, len = localStorage.length; i < len; ++i ) {
+    for ( var i = 0, len = localStorage.length; i < len; ++i ) {
         console.log(i);
         if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "test") {
             writeToScreen(format(localStorage.key(i)), "tests")
@@ -22,7 +22,7 @@ function format(title) {
 }
 
 function showTest(testName) {
-    localStorage.setItem("demo", testName)
+    localStorage["demo"] = testName
     window.location.href ='displayTest.html'
 }
 
