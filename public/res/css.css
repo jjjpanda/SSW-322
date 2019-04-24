@@ -74,6 +74,10 @@ html{
   color: black;
 }
 
+h3{
+  color: black;
+}
+
 .addButton:hover {
     background-color: cyan;
     color:white;
