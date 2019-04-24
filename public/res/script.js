@@ -12,16 +12,18 @@ firebase.initializeApp(config);
 const currentUser = firebase.auth().currentUser;
 const firestore = firebase.firestore();
 
-function updateDatabase(){
+function updateDatabase(testString){
   testName = document.getElementById("testName").value;
-  newTestDBPath = "questionnaires/tests/" + currentUser.uid + "/" + testName + "/questions/";
-  for(x = 0; x<numberOfQuestions; x++){
+  newTestDBPath = "questionnaires/tests/" + currentUser.uid + "/" + testName + "/";
+  firestore.doc(newTestDBPath).add(testString);
+
+  /*for(x = 0; x<numberOfQuestions; x++){
     firestore.doc(newTestDBPath+ questionName +"/").add({
       questionType: questionType,
       prompt: prompt,
       answer: answer
     });
-  }
+  }*/
 }
 
 
@@ -207,8 +209,9 @@ function submit(){
         }
     }
     localStorage.setItem("displayTestName", document.getElementById("testName").value);
-    localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
+    //localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
     console.log(test)
+    updateDatabase(test)
     window.location.href ='displayTest.html';
 }
 
