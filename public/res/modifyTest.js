@@ -2,7 +2,6 @@ window.onload = function() {
     testname = localStorage.getItem("displayTestName")
     loadTest = JSON.parse(localStorage.getItem(testname))
     document.getElementById("testName").value = testname
-    console.log(loadTest)
     loadQuestions(loadTest["questions"]);
 }
 
@@ -119,7 +118,6 @@ function writeQuestion(type) {
     if(questionNumber > 1){
         x.style.display = "block";
     }
-    console.log(test)
 }
 
 function hideDeleteButton() {
@@ -236,7 +234,6 @@ function submit(){
     }
     localStorage.setItem("displayTestName", document.getElementById("testName").value);
     localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
-    console.log(test)
     window.location.href ='displayTest.html';
 }
 
