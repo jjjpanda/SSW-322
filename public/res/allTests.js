@@ -14,8 +14,7 @@ function listTestsSurveys() {
 }
 
 function format(title) {
-    output = "<h1 onclick='showTest('"+title+"')'>"+title+"</h1>"
-    return output
+    return '<h1 onclick="showTest(\''+title+'\')">'+title+'</h1>'
 }
 
 function showTest(testName) {
