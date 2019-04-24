@@ -44,15 +44,22 @@ function loadQuestions(testQuestions) {
         if (question.questionType == "matching") {
             writeQuestion('matching')
             document.getElementsByName("question"+question["number"]+"Prompt")[0].value = question['prompt']
-            for(choice of question["answerChoices"]) {
+            for(choice of question["answer"]) {
                 addMatchingChoiceAnswer(document.getElementById('question'+question["number"]+'Answers'), question["number"])
+            }
+            for (i = 0; i < question["answer"].length; i++) {
+                document.getElementsByName("question"+question["number"]+"_"+i+"_1")[0].value = question.answer[i].prompt
+                document.getElementsByName("question"+question["number"]+"_"+i+"_2")[0].value = question.answer[i].answer
             }
         }
         if (question.questionType == "ranking") {
             writeQuestion('ranking')
             document.getElementsByName("question"+question["number"]+"Prompt")[0].value = question['prompt']
-            for(choice of question["answerChoices"]) {
+            for(choice of question["answer"]) {
                 addRankingChoiceAnswer(document.getElementById('question'+question["number"]+'Answers'), question["number"])
+            }
+            for (i = 0; i < question["answer"].length; i++) {
+                document.getElementsByName("question"+question["number"]+"_"+i)[0].value = question.answer[i]
             }
         }
     }
