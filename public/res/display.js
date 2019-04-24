@@ -1,4 +1,4 @@
-var firestore
+/*var firestore
 var currentUser
 var currentUID
 setTimeout(func, 5000);
@@ -27,12 +27,12 @@ var test;
 function pullDataBase(testName){
     newTestDBPath = "questionnaires/tests/" + currentUID + "/" + testName + "/";
     return firestore.doc(newTestDBPath).get(test);
-  }
+}*/
 
 window.onload = function() {
     testname = localStorage.getItem("displayTestName")
-    //test = JSON.parse(localStorage.getItem(testname))
-    test = JSON.parse(pullDataBase(testname))
+    test = JSON.parse(localStorage.getItem(testname))
+    //test = JSON.parse(pullDataBase(testname))
     document.getElementById("testTitle").innerText=testname
     console.log(test)
     displayTest(test["questions"]);

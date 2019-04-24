@@ -1,4 +1,4 @@
-var firestore
+/*var firestore
 var currentUser
 var currentUID
 setTimeout(func, 5000);
@@ -33,9 +33,9 @@ function updateDatabase(testString){
       prompt: prompt,
       answer: answer
     });
-  }*/
+  }
 }
-
+*/
 
 
 //Example way to set a test. Use add instead of set to add data.
@@ -218,8 +218,8 @@ function submit(){
             }
         }
     }
-    localStorage.setItem("displayTestName", document.getElementById("testName").value);
-    //localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
+    //localStorage.setItem("displayTestName", document.getElementById("testName").value);
+    localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
     console.log(test)
     updateDatabase(test)
     window.location.href ='displayTest.html';
