@@ -7,13 +7,13 @@ function listTestsSurveys() {
         console.log(i)
         console.log(localStorage.key(i))
         console.log(localStorage.getItem(localStorage.key(i)))
-        if (localStorage.key(i) == "displayTestName" || localStorage.getItem(localStorage.key(i)).startsWith("{")) {
+        if (localStorage.key(i) == "displayTestName" || !localStorage.getItem(localStorage.key(i)).startsWith("{")) {
             ""
         }
         else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "test") {
             writeToDiv(format(localStorage.key(i)), "tests")
         }
-        else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "surveys") {
+        else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "survey") {
             writeToDiv(format(localStorage.key(i)), "surveys")
         }
     }
