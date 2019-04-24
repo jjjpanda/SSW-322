@@ -20,7 +20,7 @@ function listTestsSurveys() {
 }
 
 function format(title) {
-    return '<button class="addButton" onclick="showTest(\''+title+'\')">'+title+'</button>'
+    return '<button class="button" onclick="showTest(\''+title+'\')">'+title+'</button>'
 }
 
 function showTest(testName) {
