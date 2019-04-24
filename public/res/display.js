@@ -23,8 +23,8 @@ function displayQuestion(type, number, prompt, answers, answer) {
         //    output += 'checked'
         output +='> True<br>'
         output += '<input class="trueFalse" type="radio" name="question'+number+'" value="option2"'
-        if (!answer)
-            output += 'checked'
+        //if (!answer)
+        //    output += 'checked'
         output += '> False<br></div></div><br>'
         return output
     }
