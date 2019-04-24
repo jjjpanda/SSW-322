@@ -44,10 +44,16 @@ function loadQuestions(testQuestions) {
         if (question.questionType == "matching") {
             writeQuestion('matching')
             document.getElementsByName("question"+question["number"]+"Prompt")[0].value = question['prompt']
+            for(choice of question["answerChoices"]) {
+                addMatchingChoiceAnswer(document.getElementById('question'+question["number"]+'Answers'), question["number"])
+            }
         }
         if (question.questionType == "ranking") {
             writeQuestion('ranking')
             document.getElementsByName("question"+question["number"]+"Prompt")[0].value = question['prompt']
+            for(choice of question["answerChoices"]) {
+                addRankingChoiceAnswer(document.getElementById('question'+question["number"]+'Answers'), question["number"])
+            }
         }
     }
 }
