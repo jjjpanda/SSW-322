@@ -1,30 +1,25 @@
 
+// Initialize Firebase
 var config = {
   apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
   authDomain: "ssw322survey.firebaseapp.com",
   databaseURL: "https://ssw322survey.firebaseio.com",
   projectId: "ssw322survey",
-  storageBucket: "ssw322survey.appspot.com"
+  storageBucket: "ssw322survey.appspot.com",
+  messagingSenderId: "36336841397"
 };
-const firestore = firebase.firestore();
-// Required for side-effects
 firebase.initializeApp(config);
-
-// Get a reference to the database service
+const firestore = firebase.firestore();
 var db = firebase.database();
-firestore.doc("driers/endtime0").get().then(function (doc) {
-  if (doc && doc.exists){
-    temp = doc.data();
-    end[0] = temp.endtime;
-  }
-  console.log(end[0]);
-})
-console.log(user.uid);
-db.collection("users").add({
-    first: "Ada",
-    last: "Lovelace",
-    born: 1815
+const docRef = firestore.doc("tests/testData");
+docRef.set({
+  testStatus: success
+}).then(function() {
+  alert("Test successfully saved!");
+}).catch(function (error){
+  console.log(error);
 });
+
 
 var test = {"type": "test", "questions":[]};
 var questionNumber = 1
