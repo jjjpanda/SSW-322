@@ -2,7 +2,6 @@ window.onload = function() {
     testname = localStorage.getItem("displayTestName")
     loadTest = JSON.parse(localStorage.getItem(testname))
     document.getElementById("testName").value = testname
-    console.log(loadTest)
     loadQuestions(loadTest["questions"]);
 }
 
@@ -44,10 +43,23 @@ function loadQuestions(testQuestions) {
         if (question.questionType == "matching") {
             writeQuestion('matching')
             document.getElementsByName("question"+question["number"]+"Prompt")[0].value = question['prompt']
+            for(choice of question["answer"]) {
+                addMatchingChoiceAnswer(document.getElementById('question'+question["number"]+'Answers'), question["number"])
+            }
+            for (i = 0; i < question["answer"].length; i++) {
+                document.getElementsByName("question"+question["number"]+"_"+i+"_1")[0].value = question.answer[i].prompt
+                document.getElementsByName("question"+question["number"]+"_"+i+"_2")[0].value = question.answer[i].answer
+            }
         }
         if (question.questionType == "ranking") {
             writeQuestion('ranking')
             document.getElementsByName("question"+question["number"]+"Prompt")[0].value = question['prompt']
+            for(choice of question["answer"]) {
+                addRankingChoiceAnswer(document.getElementById('question'+question["number"]+'Answers'), question["number"])
+            }
+            for (i = 0; i < question["answer"].length; i++) {
+                document.getElementsByName("question"+question["number"]+"_"+i)[0].value = question.answer[i]
+            }
         }
     }
 }
@@ -106,7 +118,6 @@ function writeQuestion(type) {
     if(questionNumber > 1){
         x.style.display = "block";
     }
-    console.log(test)
 }
 
 function hideDeleteButton() {
@@ -223,7 +234,6 @@ function submit(){
     }
     localStorage.setItem("displayTestName", document.getElementById("testName").value);
     localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
-    console.log(test)
     window.location.href ='displayTest.html';
 }
 
