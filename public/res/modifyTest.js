@@ -236,6 +236,7 @@ function submit(){
             }
         }
     }
+    localStorage.removeItem(testname);
     localStorage.setItem("displayTestName", document.getElementById("testName").value);
     localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
     window.location.href ='displayTest.html';
