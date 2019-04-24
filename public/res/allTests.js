@@ -8,10 +8,10 @@ function listTestsSurveys() {
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
         console.log(i);
         if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "test") {
-            writeToScreen(format(localStorage.key(i)), "tests")
+            writeToDiv(format(localStorage.key(i)), "tests")
         }
         else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "surveys") {
-            writeToScreen(format(localStorage.key(i)), "surveys")
+            writeToDiv(format(localStorage.key(i)), "surveys")
         }
     }
 }
@@ -26,7 +26,7 @@ function showTest(testName) {
     window.location.href ='displayTest.html'
 }
 
-function writeToScreen(text, div) {
+function writeToDiv(text, div) {
     output = document.getElementById(div);
     if (output.innerHTML == "You have no tests" || output.innerHTML == "You have no surveys")
         output.innerHTML = ""
