@@ -1,12 +1,9 @@
-var test;
-
 window.onload = function() {
     listTestsSurveys(localStorage)
 }
 
 function listTestsSurveys() {
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-        console.log(i);
         if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "test") {
             writeToDiv(format(localStorage.key(i)), "tests")
         }
@@ -17,12 +14,12 @@ function listTestsSurveys() {
 }
 
 function format(title) {
-    output = "<h1 onclick='showTest("+title+")'>"+title+"</h1>"
+    output = "<h1 onclick='showTest('"+title+"')'>"+title+"</h1>"
     return output
 }
 
 function showTest(testName) {
-    localStorage["demo"] = testName
+    localStorage["displayTestName"] = testName
     window.location.href ='displayTest.html'
 }
 
