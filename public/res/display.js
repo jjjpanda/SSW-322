@@ -25,7 +25,6 @@ function func() {
 var test;
 
 function pullDataBase(testName){
-    testName = document.getElementById("testName").value;
     newTestDBPath = "questionnaires/tests/" + currentUID + "/" + testName + "/";
     return firestore.doc(newTestDBPath).get(test);
   }
