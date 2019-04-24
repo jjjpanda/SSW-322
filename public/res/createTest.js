@@ -1,17 +1,3 @@
-
-var config = {
-  apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
-  authDomain: "ssw322survey.firebaseapp.com",
-  databaseURL: "https://ssw322survey.firebaseio.com",
-  storageBucket: "bucket.appspot.com"
-};
-const firebase = require("firebase");
-// Required for side-effects
-require("firebase/firestore");
-firebase.initializeApp(config);
-
-// Get a reference to the database service
-var database = firebase.database();
 var test = {"type":"test", "questions":{}, "answerChoices":{}, "correctAnswers":{}};
 //type:"test", question:{}, answers:{}
 var questionNumber = 1

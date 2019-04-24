@@ -1,3 +1,23 @@
+
+var config = {
+  apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
+  authDomain: "ssw322survey.firebaseapp.com",
+  databaseURL: "https://ssw322survey.firebaseio.com",
+  storageBucket: "bucket.appspot.com"
+};
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
+firebase.initializeApp(config);
+
+// Get a reference to the database service
+var db = firebase.database();
+console.log(user.uid);
+db.collection("users").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+});
 var test = {"type": "test", "questions":[]};
 var questionNumber = 1
 function addQuestion(type, number) {
