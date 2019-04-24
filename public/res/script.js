@@ -1,29 +1,32 @@
 var firestore
 var currentUser
 var currentUID
-window.onload = function() {
+setTimeout(func, 5000);
+
+function func() {
     // Initialize Firebase
     var config = {
-    apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
-    authDomain: "ssw322survey.firebaseapp.com",
-    databaseURL: "https://ssw322survey.firebaseio.com",
-    projectId: "ssw322survey",
-    storageBucket: "ssw322survey.appspot.com",
-    messagingSenderId: "36336841397"
-    };
-    if (firebase.apps.lengh == 0)
-        firebase.initializeApp(config);
-    firestore = firebase.firestore();
-    currentUser = firebase.auth().currentUser;
-    if (currentUser == null){
+        apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
+        authDomain: "ssw322survey.firebaseapp.com",
+        databaseURL: "https://ssw322survey.firebaseio.com",
+        projectId: "ssw322survey",
+        storageBucket: "ssw322survey.appspot.com",
+        messagingSenderId: "36336841397"
+        };
+        if (firebase.apps.lengh == 0)
+            firebase.initializeApp(config);
+        firestore = firebase.firestore();
         currentUser = firebase.auth().currentUser;
-    }
-    currentUID = currentUser.uid;
+        if (currentUser == null){
+            currentUser = firebase.auth().currentUser;
+        }
+        currentUID = currentUser.uid;
 }
+
 function updateDatabase(testString){
   testName = document.getElementById("testName").value;
   newTestDBPath = "questionnaires/tests/" + currentUID + "/" + testName + "/";
-  firestore.doc(newTestDBPath).add(testString);
+  firestore.doc(newTestDBPath).set({test: testString});
   /*for(x = 0; x<numberOfQuestions; x++){
     firestore.doc(newTestDBPath+ questionName +"/").add({
       questionType: questionType,
