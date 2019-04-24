@@ -4,7 +4,10 @@ window.onload = function() {
 
 function listTestsSurveys() {
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-        if (localStorage.key(i) == "displayTestName" || !localStorage.getItem(localStorage.key(i)).startsWith("{")) {
+        console.log(i)
+        console.log(localStorage.key(i))
+        console.log(localStorage.getItem(localStorage.key(i)))
+        if (localStorage.key(i) == "displayTestName" || localStorage.getItem(localStorage.key(i)).startsWith("{")) {
             ""
         }
         else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "test") {
