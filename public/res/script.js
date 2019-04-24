@@ -1,3 +1,4 @@
+/*
 var config = {
   apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
   authDomain: "ssw322survey.firebaseapp.com",
@@ -24,6 +25,7 @@ db.collection("users").add({
     last: "Lovelace",
     born: 1815
 });
+*/
 var test = {"type": "test", "questions":[]};
 var questionNumber = 1
 function addQuestion(type, number) {

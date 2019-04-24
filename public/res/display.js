@@ -75,6 +75,54 @@ function displayQuestion(type, number, prompt, answers, answer) {
     }
 }
 
+function submit(){
+    answersFromUser = []
+    questions = document.getElementsByClassName("question")
+
+    for ( question of questions ){
+        type = question.children[2].children[0].className
+        if (type == "trueFalse"){
+            answersFromUser.push(question.children[2].children[0].checked) 
+        }
+        if (type == "multipleChoice"){
+            mc = question.children[2].getElementsByClassName(type)
+            i = 0
+            for (choice of mc){
+                if(!choice.checked) {
+                    i++;
+                    continue;
+                }
+                else{
+                    answersFromUser.push(i);
+                }
+            }
+        }
+        if (type == "shortAnswer"){
+            answersFromUser.push(question.children[2].children[0].value)
+        }
+        if (type == "essayAnswer"){
+            answersFromUser.push(question.children[2].children[0].value)
+        }
+        if (type == "matchingTable"){
+            inputs = question.children[2].getElementsByTagName("input")
+            bruh = []
+            for(input of inputs){
+                bruh.push(input.value)
+            }
+            answersFromUser.push(bruh);
+        }
+        if (type == "rankingTable"){
+            inputs = question.children[2].getElementsByTagName("input")
+            bruh = []
+            for(input of inputs){
+                bruh.push(input.value)
+            }
+            answersFromUser.push(bruh);
+        }
+    }
+    console.log(answersFromUser)
+}
+
 function writeToScreen(text) {
     output = document.getElementById("questionDiv");
     var pre = document.createElement("p");
