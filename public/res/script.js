@@ -10,13 +10,14 @@ var config = {
 if (firebase.apps.length==0)
     firebase.initializeApp(config);
 const firestore = firebase.firestore();
-const currentUser = firebase.auth().currentUser.uid;
+currentUser = firebase.auth().currentUser;
 while(currentUser == null){
-    currentUser = firebase.auth().currentUser.uid;
+    currentUser = firebase.auth().currentUser;
 }
+const currentUID = currentUser.uid;
 function updateDatabase(testString){
   testName = document.getElementById("testName").value;
-  newTestDBPath = "questionnaires/tests/" + currentUser + "/" + testName + "/";
+  newTestDBPath = "questionnaires/tests/" + currentUID + "/" + testName + "/";
   firestore.doc(newTestDBPath).add(testString);
   /*for(x = 0; x<numberOfQuestions; x++){
     firestore.doc(newTestDBPath+ questionName +"/").add({
