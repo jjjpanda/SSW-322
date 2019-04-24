@@ -9,9 +9,23 @@ var config = {
   messagingSenderId: "36336841397"
 };
 firebase.initializeApp(config);
+const currentUser = firebase.auth().currentUser;
 const firestore = firebase.firestore();
-var db = firebase.database();
-const docRef = firestore.doc("tests/testData");
+
+function updateDatabase(){
+  testName = document.getElementById("testName").value;
+  newTestDBPath = "questionnaires/tests/" + currentUser.uid + "/" + testName + "/questions/";
+  for(int x = 0; x<numberOfQuestions; x++){
+    firestore.doc(newTestDBPath+ questionName +"/").add({
+      questionType: questionType,
+      prompt: prompt,
+      answer: answer
+    });
+  }
+}
+
+
+
 //Example way to set a test. Use add instead of set to add data.
 /*
 docRef.set({
