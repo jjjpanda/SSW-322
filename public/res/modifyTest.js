@@ -1,5 +1,3 @@
-var test;
-
 window.onload = function() {
     testname = localStorage.getItem("displayTestName")
     loadTest = JSON.parse(localStorage.getItem(testname))
@@ -8,6 +6,7 @@ window.onload = function() {
     loadQuestions(loadTest["questions"]);
 }
 
+var test;
 function loadQuestions(testQuestions) {
     for (question of testQuestions) {
         if (question.questionType == "trueFalse") {
@@ -25,9 +24,9 @@ function loadQuestions(testQuestions) {
             document.getElementsByName("question"+question["number"]+"Prompt")[0].value = question['prompt']
             for(choice of question["answerChoices"]) {
                 addMultipleChoiceAnswer(document.getElementById('question'+question["number"]+'Answers'), question["number"])
-                //document.getElementById("question"+question["number"]+"Answers").children.getElementsByClassName("questionPromptCreate")[0].value = choice
             }
             for (i = 0; i < document.getElementsByName("question"+question['number']).length; i++) {
+                document.getElementsByName("question"+question["number"]+"Text"+i)[0].value = question.answerChoices[i]
                 if(question["answer"] = i)
                     document.getElementsByName("question"+question['number'])[i].checked = true
             }
@@ -53,6 +52,7 @@ function loadQuestions(testQuestions) {
     }
 }
 
+var test = {"type": "test", "questions":[]};
 var questionNumber = 1
 function addQuestion(type, number) {
     if (type == "trueFalse"){
