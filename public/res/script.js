@@ -1,17 +1,16 @@
-
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
-  authDomain: "ssw322survey.firebaseapp.com",
-  databaseURL: "https://ssw322survey.firebaseio.com",
-  projectId: "ssw322survey",
-  storageBucket: "ssw322survey.appspot.com",
-  messagingSenderId: "36336841397"
-};
-firebase.initializeApp(config);
-const firestore = firebase.firestore();
-
 function updateDatabase(testString){
+
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
+    authDomain: "ssw322survey.firebaseapp.com",
+    databaseURL: "https://ssw322survey.firebaseio.com",
+    projectId: "ssw322survey",
+    storageBucket: "ssw322survey.appspot.com",
+    messagingSenderId: "36336841397"
+  };
+  firebase.initializeApp(config);
+  const firestore = firebase.firestore();
   const currentUser = firebase.auth().currentUser.uid;
   testName = document.getElementById("testName").value;
   newTestDBPath = "questionnaires/tests/" + currentUser + "/" + testName + "/";
