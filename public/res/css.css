@@ -71,9 +71,7 @@ html{
     cursor:pointer;
 }
 
-p{
-  font-size: 66px;
-}
+#typed { font-size:66px; }
 
 .title h3{
   color: black;
