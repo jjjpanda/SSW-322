@@ -27,8 +27,7 @@ var test;
 function pullDataBase(testName){
     newTestDBPath = "questionnaires/tests/" + currentUID + "/" + testName + "/";
     return firestore.doc(newTestDBPath).get(test);
-}
-/*
+}*/
 
 window.onload = function() {
     testname = localStorage.getItem("displayTestName")
