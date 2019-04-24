@@ -4,9 +4,6 @@ window.onload = function() {
 
 function listTestsSurveys() {
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-        console.log(i)
-        console.log(localStorage.key(i))
-        console.log(localStorage.getItem(localStorage.key(i)))
         if (localStorage.key(i) == "displayTestName" || !localStorage.getItem(localStorage.key(i)).startsWith("{")) {
             ""
         }
@@ -30,9 +27,9 @@ function showTest(testName) {
 
 function writeToDiv(text, div) {
     output = document.getElementById(div);
-    if (output.innerHTML == "You have no tests")
+    if (output.innerHTML == "There are no tests to display")
         output.innerHTML = "<h1>Test List</h1>"
-    if (output.innerHTML == "You have no surveys")
+    if (output.innerHTML == "There are no surveys to display")
         output.innerHTML = "<h1>Survey List</h1>"
     var pre = document.createElement("p");
 	pre.innerHTML = text;

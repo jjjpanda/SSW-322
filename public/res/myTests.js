@@ -4,9 +4,6 @@ window.onload = function() {
 
 function listTestsSurveys() {
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-        console.log(i)
-        console.log(localStorage.key(i))
-        console.log(localStorage.getItem(localStorage.key(i)))
         if (localStorage.key(i) == "displayTestName" || !localStorage.getItem(localStorage.key(i)).startsWith("{")) {
             ""
         }
