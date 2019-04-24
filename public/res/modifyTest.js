@@ -2,6 +2,10 @@ window.onload = function() {
     testname = localStorage.getItem("displayTestName")
     loadTest = JSON.parse(localStorage.getItem(testname))
     document.getElementById("testName").value = testname
+    if (loadTest["type"] == "survey")
+        changeType('survey')
+    if (loadTest["type"] == "test")
+        changeType('test')
     loadQuestions(loadTest["questions"]);
 }
 
