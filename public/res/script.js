@@ -12,6 +12,8 @@ firebase.initializeApp(config);
 const firestore = firebase.firestore();
 var db = firebase.database();
 const docRef = firestore.doc("tests/testData");
+//Example way to set a test. Use add instead of set to add data.
+/*
 docRef.set({
   testStatus: "success"
 }).then(function() {
@@ -19,7 +21,7 @@ docRef.set({
 }).catch(function (error){
   console.log(error);
 });
-
+*/
 
 var test = {"type": "test", "questions":[]};
 var questionNumber = 1
