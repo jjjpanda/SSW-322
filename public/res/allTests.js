@@ -24,8 +24,10 @@ function showTest(testName) {
 
 function writeToDiv(text, div) {
     output = document.getElementById(div);
-    if (output.innerHTML == "You have no tests" || output.innerHTML == "You have no surveys")
-        output.innerHTML = ""
+    if (output.innerHTML == "You have no tests")
+        output.innerHTML = "<h1>Test List</h1>"
+    if (output.innerHTML == "You have no surveys")
+        output.innerHTML = "<h1>Survey List</h1>"
     var pre = document.createElement("p");
 	pre.innerHTML = text;
     output.appendChild(pre);
