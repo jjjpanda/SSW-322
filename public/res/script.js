@@ -9,10 +9,10 @@ var config = {
   messagingSenderId: "36336841397"
 };
 firebase.initializeApp(config);
-const currentUser = firebase.auth().currentUser.uid;
 const firestore = firebase.firestore();
 
 function updateDatabase(testString){
+  const currentUser = firebase.auth().currentUser.uid;
   testName = document.getElementById("testName").value;
   newTestDBPath = "questionnaires/tests/" + currentUser + "/" + testName + "/";
   firestore.doc(newTestDBPath).add(testString);
