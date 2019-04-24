@@ -15,7 +15,7 @@ window.onload = function() {
         firebase.initializeApp(config);
     firestore = firebase.firestore();
     currentUser = firebase.auth().currentUser;
-    while(currentUser == null){
+    if (currentUser == null){
         currentUser = firebase.auth().currentUser;
     }
     currentUID = currentUser.uid;
