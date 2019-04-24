@@ -1,3 +1,6 @@
+var firestore
+var currentUser
+var currentUID
 window.onload = function() {
     // Initialize Firebase
     var config = {
