@@ -11,7 +11,12 @@ require("firebase/firestore");
 firebase.initializeApp(config);
 
 // Get a reference to the database service
-var database = firebase.database();
+var db = firebase.database();
+db.collection("users").add({
+    first: "Ada",
+    last: "Lovelace",
+    born: 1815
+});
 var test = {"type":"test", "questions":{}, "answerChoices":{}, "correctAnswers":{}};
 //type:"test", question:{}, answers:{}
 var questionNumber = 1
