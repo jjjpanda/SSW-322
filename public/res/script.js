@@ -8,7 +8,8 @@ window.onload = function() {
     storageBucket: "ssw322survey.appspot.com",
     messagingSenderId: "36336841397"
     };
-    firebase.initializeApp(config);
+    if (firebase.apps.lengh == 0)
+        firebase.initializeApp(config);
     firestore = firebase.firestore();
     currentUser = firebase.auth().currentUser;
     while(currentUser == null){
