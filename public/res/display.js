@@ -1,7 +1,7 @@
 var test;
 
 window.onload = function() {
-    testname = localStorage.getItem("demo")
+    testname = localStorage.getItem("displayTestName")
     test = JSON.parse(localStorage.getItem(testname))
     document.getElementById("testTitle").innerText=testname
     console.log(test)

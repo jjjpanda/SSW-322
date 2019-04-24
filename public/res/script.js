@@ -1,4 +1,3 @@
-//TODO: Add number of desired answers to addQuestion method
 var test = {"type": "test", "questions":[]};
 var questionNumber = 1
 function addQuestion(type, number) {
@@ -168,8 +167,8 @@ function submit(){
             }
         }
     }
-    localStorage.setItem("demo", document.getElementById("testName").value); //temp solution until we get JSON working
-    localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test)); //temp solution until we get JSON working
+    localStorage.setItem("displayTestName", document.getElementById("testName").value);
+    localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
     console.log(test)
     window.location.href ='displayTest.html';
 }
