@@ -1,9 +1,9 @@
-
 var config = {
   apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
   authDomain: "ssw322survey.firebaseapp.com",
   databaseURL: "https://ssw322survey.firebaseio.com",
-  storageBucket: "bucket.appspot.com"
+  projectId: "ssw322survey",
+  storageBucket: "ssw322survey.appspot.com"
 };
 const firebase = require("firebase");
 // Required for side-effects
