@@ -218,10 +218,10 @@ function submit(){
             }
         }
     }
-    //localStorage.setItem("displayTestName", document.getElementById("testName").value);
+    localStorage.setItem("displayTestName", document.getElementById("testName").value);
     localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
     console.log(test)
-    updateDatabase(test)
+    //updateDatabase(test)
     window.location.href ='displayTest.html';
 }
 
