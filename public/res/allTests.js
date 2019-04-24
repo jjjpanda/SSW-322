@@ -8,10 +8,10 @@ function listTestsSurveys() {
     for ( var i = 1, len = localStorage.length; i < len; ++i ) {
         console.log(i);
         if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "test") {
-            writeToScreen(format(i), "tests")
+            writeToScreen(format(localStorage.key(i)), "tests")
         }
         else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "surveys") {
-            writeToScreen(format(i), "surveys")
+            writeToScreen(format(localStorage.key(i)), "surveys")
         }
 
         console.log(i);
