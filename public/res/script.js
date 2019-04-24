@@ -10,8 +10,9 @@ var config = {
 if (firebase.apps.length==0)
     firebase.initializeApp(config);
 const firestore = firebase.firestore();
+const currentUser = firebase.auth().currentUser.uid;
 while(currentUser == null){
-    const currentUser = firebase.auth().currentUser.uid;
+    currentUser = firebase.auth().currentUser.uid;
 }
 function updateDatabase(testString){
   testName = document.getElementById("testName").value;
