@@ -7,7 +7,8 @@ var config = {
   storageBucket: "ssw322survey.appspot.com",
   messagingSenderId: "36336841397"
 };
-firebase.initializeApp(config);
+if (firebase.apps.length==0)
+    firebase.initializeApp(config);
 const firestore = firebase.firestore();
 while(currentUser == null){
     const currentUser = firebase.auth().currentUser.uid;
