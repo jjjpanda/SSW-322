@@ -13,30 +13,23 @@ function listTestsSurveys() {
         else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "surveys") {
             writeToScreen(format(localStorage.key(i)), "surveys")
         }
-
-        console.log(i);
-      }
-
-    for(test of testList) {
-        if (test[type] == "test") {
-            writeToScreen(test)
-        }
     }
 }
 
 function format(title) {
-    output = "<h1>"+title+"</h1>"
-    output += ""
+    output = "<h1 onclick='showTest("+title+")'>"+title+"</h1>"
     return output
 }
 
 function showTest(testName) {
-    localStorage.setItem("testToLoad", testName)
+    localStorage.setItem("demo", testName)
     window.location.href ='displayTest.html'
 }
 
 function writeToScreen(text, div) {
     output = document.getElementById(div);
+    if (output.innerHTML == "You have no tests" || output.innerHTML == "You have no surveys")
+        output.innerHTML = ""
     var pre = document.createElement("p");
 	pre.innerHTML = text;
     output.appendChild(pre);
