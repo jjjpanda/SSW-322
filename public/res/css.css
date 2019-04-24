@@ -9,6 +9,7 @@
 
 html{
     background-color: rgb(250,250,250);
+    color: black;
 }
 
 .button {
@@ -60,7 +61,7 @@ html{
  }
 
 .addButton{
-    background-color: blue;
+    background-color: rgb(83, 142, 237);
     border: none;
     color: black;
     text-align: center;
@@ -70,8 +71,12 @@ html{
     cursor:pointer;
 }
 
+.title h3{
+  color: black;
+}
+
 .addButton:hover {
-    background-color: blue;
+    background-color: cyan;
     color:white;
  }
 
@@ -90,3 +95,5 @@ html{
   .typeSelected {
     background-color:green;
   }
+
+<link rel="stylesheet" type="text/css" href='site.css?v=<%= DateTime.Now.Ticks %>' />
