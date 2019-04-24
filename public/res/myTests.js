@@ -22,7 +22,7 @@ function format(title) {
 
 function showTest(testName) {
     localStorage["displayTestName"] = testName
-    window.location.href ='displayTest.html'
+    window.location.href ='modifyTest.html'
 }
 
 function writeToDiv(text, div) {
