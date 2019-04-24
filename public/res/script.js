@@ -5,13 +5,19 @@ var config = {
   projectId: "ssw322survey",
   storageBucket: "ssw322survey.appspot.com"
 };
-const firebase = require("firebase");
+const firestore = firebase.firestore();
 // Required for side-effects
-require("firebase/firestore");
 firebase.initializeApp(config);
 
 // Get a reference to the database service
 var db = firebase.database();
+firestore.doc("driers/endtime0").get().then(function (doc) {
+  if (doc && doc.exists){
+    temp = doc.data();
+    end[0] = temp.endtime;
+  }
+  console.log(end[0]);
+})
 console.log(user.uid);
 db.collection("users").add({
     first: "Ada",
