@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link rel = "stylesheet" type="text/css" href="res/css.css"/>
+  <script type="text/javascript" src="res/modifyTest.js"></script>
+</head>
+<body>
+    <div id="nav"></div>
+    <script>
+    $("#nav").load("nav.html");
+    </script>
+
+    <input id="testName" type="text" placeholder="Name"></div>
+    <button id="testTypeButton" class="typeSelected" onclick="changeType('test')"> Test </button>
+    <button id="surveyTypeButton" onclick="changeType('survey')"> Survey </button>
+
+    <div id="questionDiv"></div>
+    <button id="deleteButton" style="display:none" class = "button" onclick="deleteLastQuestion()"> Delete Last Question </button>
+    <button id="submitButton" style="display:none" class = "button" onclick="submit()"> Create Test </button>
+
+    <p></p>
+    <h3 style= "color:black;">Add Question: </h3>
+    <button class = "button" onclick="writeQuestion('trueFalse')"> True/False </button>
+    <button class = "button" onclick="writeQuestion('multipleChoice')"> Multiple Choice </button>
+    <button class = "button" onclick="writeQuestion('shortAnswer')"> Short Answer </button>
+    <button class = "button" onclick="writeQuestion('essayAnswer')"> Essay Answer </button>
+    <button class = "button" onclick="writeQuestion('matching')"> Matching </button>
+    <button class = "button" onclick="writeQuestion('ranking')"> Ranking </button>
+</body>
+</html>
