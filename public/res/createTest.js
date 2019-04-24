@@ -12,6 +12,7 @@ firebase.initializeApp(config);
 
 // Get a reference to the database service
 var db = firebase.database();
+console.log(user.uid);
 db.collection("users").add({
     first: "Ada",
     last: "Lovelace",
