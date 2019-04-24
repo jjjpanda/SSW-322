@@ -13,7 +13,7 @@ const firestore = firebase.firestore();
 var db = firebase.database();
 const docRef = firestore.doc("tests/testData");
 docRef.set({
-  testStatus: success
+  testStatus: "success"
 }).then(function() {
   alert("Test successfully saved!");
 }).catch(function (error){
