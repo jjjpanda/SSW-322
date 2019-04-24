@@ -4,7 +4,10 @@ window.onload = function() {
 
 function listTestsSurveys() {
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-        if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "test") {
+        if (localStorage.key(i) == "displayTestName" || !localStorage.getItem(localStorage.key(i)).startsWith("{")) {
+            ""
+        }
+        else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "test") {
             writeToDiv(format(localStorage.key(i)), "tests")
         }
         else if (JSON.parse(localStorage.getItem(localStorage.key(i)))["type"] == "surveys") {
