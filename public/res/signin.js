@@ -137,7 +137,7 @@ function initApp() {
       // User is signed in.
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
-      document.getElementById('quickstart-account-details').textContent = uid;
+      //document.getElementById('quickstart-account-details').textContent = uid;
       var signInDiv = document.getElementById("userLoginInputs");
       signInDiv.style.display = "none";
       // [START_EXCLUDE]
