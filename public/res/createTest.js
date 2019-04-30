@@ -1,4 +1,4 @@
-var test = {"type":"test", "questions":{}, "answerChoices":{}, "correctAnswers":{}};
+  + "<hr/>"var test = {"type":"test", "questions":{}, "answerChoices":{}, "correctAnswers":{}};
 //type:"test", question:{}, answers:{}
 var questionNumber = 1
 var formType = 'test'
@@ -68,36 +68,36 @@ function deleteLastQuestion() {
 function addQuestion(type, number) {
     if (type == "trueFalse"){
         test.push({'questionType':'trueFalse', 'number':number});
-        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="trueFalse" type="radio" name="question'+number+'" placeholder="option1"> True<br><input class="trueFalse" type="radio" name="question'+number+'" placeholder="option2"> False<br></div></div><br>';
+        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="trueFalse" type="radio" name="question'+number+'" placeholder="option1"> True<br><input class="trueFalse" type="radio" name="question'+number+'" placeholder="option2"> False<br></div></div><br>'  + "<hr/>";
     }
     if (type == "multipleChoice"){
         test.push({'questionType':'multipleChoice', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"></div>'
         output += '<button class="addButton" onclick="addMultipleChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
         output += '<button class="addButton" onclick="delMultipleChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
-        return output;
+        return output  + "<hr/>";
     }
     if (type == "shortAnswer"){
         test.push({'questionType':'shortAnswer', 'number':number});
-        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="shortAnswer" type="text" name="question'+number+'" placeholder="Short Answer"></div></div><br>';
+        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="shortAnswer" type="text" name="question'+number+'" placeholder="Short Answer"></div></div><br>'  + "<hr/>";
     }
     if (type == "essayAnswer"){
         test.push({'questionType':'essayAnswer', 'number':number});
-        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="essayAnswer" type="text" name="question'+number+'" placeholder="Essay Answer"></div></div><br>';
+        return '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"><input class="essayAnswer" type="text" name="question'+number+'" placeholder="Essay Answer"></div></div><br>'  + "<hr/>";
     }
     if (type == "matching"){
         test.push({'questionType':'matching', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><div class="questionAnswers" id="question'+number+'Answers"></div>'
         output += '<button class="addButton" onclick="addMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
         output += '<button class="addButton" onclick="delMatchingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
-        return output;
+        return output  + "<hr/>";
     }
     if (type == "ranking"){
         test.push({'questionType':'ranking', 'number':number});
         output = '<div class="question"><span class="questionNumber">'+number+'</span><input class="questionPromptCreate" type="text" name="question'+number+'Prompt" placeholder="Question Prompt"><br><div class="questionAnswers" id="question'+number+'Answers"></div>';
         output += '<button class="addButton" onclick="addRankingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'), '+number+')">+</button>';
         output += '<button class="addButton" onclick="delRankingChoiceAnswer(document.getElementById(\'question'+number+'Answers\'))">-</button></div>';
-        return output;
+        return output  + "<hr/>";
     }
 }
 

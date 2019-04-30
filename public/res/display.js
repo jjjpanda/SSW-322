@@ -56,7 +56,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
         //if (!answer)
         //    output += 'checked'
         output += '> False<br></div></div><br>'
-        return output
+        return output + "<hr/>"
     }
     if (type == "multipleChoice"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers">'
@@ -67,13 +67,13 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += '>'+answers[i]+'<br>'
         }
         output += '</div></div><br>'
-        return output;
+        return output  + "<hr/>";
     }
     if (type == "shortAnswer"){
-        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="shortAnswer" type="text" name="question'+number+'"></div></div><br></br>'
+        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="shortAnswer" type="text" name="question'+number+'"></div></div><br></br>  + "<hr/>"'
     }
     if (type == "essayAnswer"){
-        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="essayAnswer" type="text" name="question'+number+'"></div></div><br>'
+        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="essayAnswer" type="text" name="question'+number+'"></div></div><br>  + "<hr/>"'
     }
     if (type == "matching"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="matchingTable"><th>Choices</th>';
@@ -87,7 +87,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += '<input class="matching" type="text" name="question'+number+'_'+(i+1)+'"> = '+answer[i].answer+'<br>';
         }
         output += '</div></div><br>';
-        return output;
+        return output  + "<hr/>";
     }
     if (type == "ranking"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="rankingTable"><th>Choices</th>';
@@ -101,7 +101,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += (i+1)+') <input class="ranking" type="text" name="question'+number+'_'+(i+1)+'" ><br>'
         }
         output += '</div></div><br>';
-        return output;
+        return output  + "<hr/>";
     }
 }
 
