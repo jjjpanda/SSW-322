@@ -17,14 +17,16 @@
 <img id = "logo" src = "img/qtest.png" onclick="window.location.href ='index.html'"></img>
 
 <div id="userLoginInputs">
-  Leave blank to sign in anonymously.
-  <input style="display:inline;width:auto;" type="text" id="email" name="email" placeholder="Email"/>
+  <!----Leave blank to sign in anonymously.-->
+  
+  <input style="display:inline;width:auto;float: right" type="password" id="password" name="password" placeholder="Password"/>
   &nbsp;&nbsp;&nbsp;
-  <input style="display:inline;width:auto;" type="password" id="password" name="password" placeholder="Password"/>
+  <input style="display:inline;width:auto;float: right" type="text" id="email" name="email" placeholder="Email"/>
   &nbsp;&nbsp;&nbsp;
-  <button class="button" id="quickstart-sign-up" name="signup">Sign Up</button>
+  <br></br>
+  <button style= "float: right" class="button" id="quickstart-sign-up" name="signup">Sign Up</button>
   &nbsp;&nbsp;&nbsp;
-  <button class="button" id="quickstart-password-reset" name="verify-email">Reset Password</button>
+  <button style= "float: right" class="button" id="quickstart-password-reset" name="verify-email">Reset Password</button>
 </div>
 <button style= "float: right" class="button" id="quickstart-sign-in" name="signin">Sign In</button>
 <div align=right>sign-in status:</div>
