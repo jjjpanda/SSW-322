@@ -184,7 +184,7 @@ function determineCorrectness(answers, answersFromUser){
     for(i = 0; i< answers.length; i++){
         if(answers[i] instanceof Array){
             correctness = []
-            for(j = 0; i<answers[i].length; i++){
+            for(j = 0; i<answers[i].length; j++){
                 if(answers[i][j] instanceof Object){
                     correctness.push(isObjEquivalent(answers[i][j], answersFromUser[i][j]))
                 }
