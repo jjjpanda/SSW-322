@@ -78,6 +78,19 @@ h3{
     color:white;
  }
 
+p.correct{
+  border-style: double;
+  border-width: 15px;
+  border-color: teal;
+}
+
+p.incorrect{
+  border-style: double;
+  border-width: 15px;
+  border-color: red;
+}
+
+
   /* The typing effect */
   @keyframes typing {
     from { width: 0 }

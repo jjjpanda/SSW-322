@@ -207,12 +207,11 @@ function determineCorrectness(answers, answersFromUser){
 }
 
 function printCorrectness(element, correctness){
-    var pre = element.getElementsByClassName("correctness")[0];
     if(correctness){
-        pre.innerHTML = "Correct";
+        element.className = "correct";
     }
     else{
-        pre.innerHTML = "Wrong";
+        element.className = "incorrect";
     }
 }
 
