@@ -115,3 +115,5 @@ p.incorrect{
   input[type='radio']{
     width: 5%; 
   }
+
+  *{ font-family: Arial, Helvetica, sans-serif; }
