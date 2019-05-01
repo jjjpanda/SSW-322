@@ -29,7 +29,7 @@ function pullDataBase(testName){
     return firestore.doc(newTestDBPath).get(test);
 }*/
 
-window.onload = function() {
+function initDisplayTest() {
     testname = localStorage.getItem("displayTestName")
     test = JSON.parse(localStorage.getItem(testname))
     //test = JSON.parse(pullDataBase(testname))
@@ -121,7 +121,7 @@ function submit(){
             else{
                 answersFromUser.push(0)
             }
-             
+
         }
         if (type == "multipleChoice"){
             mc = question.children[2].getElementsByClassName(type)
@@ -141,7 +141,7 @@ function submit(){
             if(!foundAnswer){
                 answersFromUser.push(-1);
             }
-            
+
         }
         if (type == "shortAnswer"){
             answersFromUser.push(question.children[2].children[0].value)
