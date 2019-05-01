@@ -169,6 +169,3 @@ function initApp() {
   // [END authstatelistener]
 
 }
-window.onload = function() {
-  initApp();
-};
