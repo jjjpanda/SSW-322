@@ -104,7 +104,7 @@ p.incorrect{
   }
 
   .typeSelected {
-    background-color: grey;
+    background-color: green;
   }
 
   input{
