@@ -1,4 +1,4 @@
-/*var firestore
+var firestore
 var currentUser
 var currentUID
 setTimeout(func, 5000);
@@ -33,13 +33,13 @@ function updateDatabase(testString){
       prompt: prompt,
       answer: answer
     });
-  }
+  }*/
 }
-*/
+
 
 
 //Example way to set a test. Use add instead of set to add data.
-/*
+
 docRef.set({
   testStatus: "success"
 }).then(function() {
@@ -47,7 +47,6 @@ docRef.set({
 }).catch(function (error){
   console.log(error);
 });
-*/
 
 var test = {"type": "test", "questions":[]};
 var questionNumber = 1
