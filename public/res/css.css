@@ -57,12 +57,12 @@ html{
  }
 
 .addButton{
-    background-color: rgb(83, 142, 237);
+    background-color: rgb(136, 202, 225);
     border: none;
     color: black;
     text-align: center;
     font-size: 16px;
-    margin: 0px 10 px
+    margin: 1px 5px;
     padding: 5px 10px;
     cursor:pointer;
 }
