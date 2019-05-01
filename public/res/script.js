@@ -1,9 +1,9 @@
 var firestore;
 var currentUser;
 var currentUID;
-setTimeout(func, 5000);
 
-function func() {
+
+function initFirestore() {
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyCKb8456ADN7ru83vdjrRtDyZhQIStCOIQ",
@@ -17,15 +17,15 @@ function func() {
             firebase.initializeApp(config);
         firestore = firebase.firestore();
         currentUser = firebase.auth().currentUser;
-        if (currentUser == null){
-            currentUser = firebase.auth().currentUser;
-        }
         currentUID = currentUser.uid;
 }
 
 function updateDatabase(testString){
   testName = document.getElementById("testName").value;
+  console.log(currentUID);
   newTestDBPath = "questionnaires/tests/" + currentUID + "/" + testName + "/";
+  console.log(newTestDBPath);
+  console.log(testString);
   firestore.doc(newTestDBPath).set({test: testString});
   /*for(x = 0; x<numberOfQuestions; x++){
     firestore.doc(newTestDBPath+ questionName +"/").add({

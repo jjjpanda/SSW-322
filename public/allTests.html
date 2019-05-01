@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html>
-<div id="nav"></div>
-<script src="/__/firebase/5.10.0/firebase-app.js"></script>
-<script src="/__/firebase/5.10.0/firebase-auth.js"></script>
-<script src="/__/firebase/5.10.0/firebase-firestore.js"></script>
-<script src="/__/firebase/init.js"></script>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<link rel = "stylesheet" type="text/css" href="res/css.css"/>
-<script type="text/javascript" src="res/allTests.js"></script>
 
+<head>
+  <script src="/__/firebase/5.10.0/firebase-app.js"></script>
+  <script src="/__/firebase/5.10.0/firebase-auth.js"></script>
+  <script src="/__/firebase/5.10.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script type="text/javascript" src="res/signin.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link rel = "stylesheet" type="text/css" href="res/css.css"/>
+  <script type="text/javascript" src="res/allTests.js"></script>
+</head>
 <body onload="initApp(); initAllTests();">
-<nav>
+  <div id="nav"></div>
+  <nav>
 
-<!--<iframe width="0" height="0" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/588509211%3Fsecret_token%3Ds-KZses&color=%235e7b52&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>-->
-<img id = "logo" src = "img/qtest.png" onclick="window.location.href ='index.html'"></img>
+    <!--<iframe width="0" height="0" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/588509211%3Fsecret_token%3Ds-KZses&color=%235e7b52&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>-->
+    <img id = "logo" src = "img/qtest.png" onclick="window.location.href ='index.html'"></img>
 
-<button class="button" id="quickstart-sign-in" name="signin" style="float: right">Sign in</button>
+    <button class="button" id="quickstart-sign-in" name="signin" style="float: right">Sign in</button>
 
-<div id="userLoginInputs" style="float:right">
-    <!--Leave blank to sign in anonymously.-->
-  <input style="display:inline;width:auto;float: right" type="password" id="password" name="password" placeholder="Password">
-  <input style="display:inline;width:auto;float: right" type="text" id="email" name="email" placeholder="Email">
-<br/>
-<button class="button" id="quickstart-password-reset" name="verify-email" style="float: right">Reset Password</button>
-<button class="button" id="quickstart-sign-up" name="signup" style="float: right">Sign Up</button>
-</div>
+    <div id="userLoginInputs" style="float:right">
+      <!--Leave blank to sign in anonymously.-->
+      <input style="display:inline;width:auto;float: right" type="password" id="password" name="password" placeholder="Password">
+      <input style="display:inline;width:auto;float: right" type="text" id="email" name="email" placeholder="Email">
+      <br/>
+      <button class="button" id="quickstart-password-reset" name="verify-email" style="float: right">Reset Password</button>
+      <button class="button" id="quickstart-sign-up" name="signup" style="float: right">Sign Up</button>
+    </div>
 
 
-  <div align="right">sign-in status:</div>
-  <div align="right" id="quickstart-sign-in-status">Signed out</div>
-  <!---
-  <pre><code style="display:none" id="quickstart-account-details">hi cutie ;)</code></pre>
+    <div align="right">sign-in status:</div>
+    <div align="right" id="quickstart-sign-in-status">Signed out</div>
+    <!---
+    <pre><code style="display:none" id="quickstart-account-details">hi cutie ;)</code></pre>
   -->
 
-<br></br>
+  <br></br>
 
-<hr></hr>
+  <hr></hr>
 
-<table>
+  <table>
     <tr>
-        <td>
-            <button class = "button" onclick="window.location.href ='allTests.html'" >All Tests</button>
-        </td>
-        <td>
-            <button class = "button signInRequired" onclick="window.location.href ='createTest.html'" disabled>Create Test</button>
-        </td>
-        <td>
-            <button class = "button signInRequired" onclick="window.location.href ='myTests.html'" disabled>My Tests</button>
-        </td>
-        <!--
-        <td>
-            <input class = "search" placeholder="Search"></input>
-        </td>
-        --->
-    </tr>
+      <td>
+        <button class = "button" onclick="window.location.href ='allTests.html'" >All Tests</button>
+      </td>
+      <td>
+        <button class = "button signInRequired" onclick="window.location.href ='createTest.html'" disabled>Create Test</button>
+      </td>
+      <td>
+        <button class = "button signInRequired" onclick="window.location.href ='myTests.html'" disabled>My Tests</button>
+      </td>
+      <!--
+      <td>
+      <input class = "search" placeholder="Search"></input>
+    </td>
+    --->
+  </tr>
 </table>
 
 <hr></hr>
@@ -63,7 +66,7 @@
 
 <h1 style="text-align:center">All Tests</h1>
 <div style="display: flex;">
-    <div style="flex: 50%;" id="tests">There are no tests to display</div>
-    <div style="flex: 50%;" id="surveys">There are no surveys to display</div>
+  <div style="flex: 50%;" id="tests">There are no tests to display</div>
+  <div style="flex: 50%;" id="surveys">There are no surveys to display</div>
 </div>
-</html.
+</html>
