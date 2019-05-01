@@ -56,7 +56,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
         //if (!answer)
         //    output += 'checked'
         output += '> False<br></div></div><br>'
-        return output + "<hr/>"
+        return output + "<div id='correctness'></div><hr/>"
     }
     if (type == "multipleChoice"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers">'
@@ -67,13 +67,13 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += '>'+answers[i]+'<br>'
         }
         output += '</div></div><br>'
-        return output  + "<hr/>";
+        return output  + "<div id='correctness'></div><hr/>";
     }
     if (type == "shortAnswer"){
-        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="shortAnswer" type="text" name="question'+number+'"></div></div><br></br>'  + "<hr/>"
+        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="shortAnswer" type="text" name="question'+number+'"></div></div><br></br>'  + "<div id='correctness'></div><hr/>"
     }
     if (type == "essayAnswer"){
-        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="essayAnswer" type="text" name="question'+number+'"></div></div><br>'  + "<hr/>"
+        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="essayAnswer" type="text" name="question'+number+'"></div></div><br>'  + "<div id='correctness'></div><hr/>"
     }
     if (type == "matching"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="matchingTable"><th>Choices</th>';
@@ -87,7 +87,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += '<div class="matching"><input type="text" name="question'+number+'_'+(i+1)+'"><div id = "matchPrompt">= '+answer[i].answer+'</div></div><br>';
         }
         output += '</div></div><br>';
-        return output  + "<hr/>";
+        return output  + "<div id='correctness'></div><hr/>";
     }
     if (type == "ranking"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="rankingTable"><th>Choices</th>';
@@ -101,7 +101,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += (i+1)+') <input class="ranking" type="text" name="question'+number+'_'+(i+1)+'" ><br>'
         }
         output += '</div></div><br>';
-        return output  + "<hr/>";
+        return output  + "<div id='correctness'></div><hr/>";
     }
 }
 
@@ -192,26 +192,28 @@ function determineCorrectness(answers, answersFromUser){
                     correctness.push(answers[i][j] === answersFromUser[i][j])
                 }
             }
+            console.log(correctness)
             printCorrectness(questionsOnScreen[i], correctness.every(boolin))
         }
         else if(answers[i] === answersFromUser[i]){
+            console.log(true)
             printCorrectness(questionsOnScreen[i], true)
         }
         else{
+            console.log(false)
             printCorrectness(questionsOnScreen[i], false)
         }
     }
 }
 
 function printCorrectness(element, correctness){
-    var pre = document.createElement("div");
+    var pre = element.getElementById("correctness");
     if(correctness){
         pre.innerHTML = "Correct";
     }
     else{
         pre.innerHTML = "Wrong";
     }
-    element.appendChild(pre);
 }
 
 function isObjEquivalent(a, b) { //http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
