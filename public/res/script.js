@@ -1,6 +1,6 @@
-var firestore
-var currentUser
-var currentUID
+var firestore;
+var currentUser;
+var currentUID;
 setTimeout(func, 5000);
 
 function func() {
@@ -49,7 +49,7 @@ docRef.set({
 });
 
 var test = {"type": "test", "questions":[]};
-var questionNumber = 1
+var questionNumber = 1;
 function addQuestion(type, number) {
     if (type == "trueFalse"){
         test["questions"].push({'questionType':'trueFalse', 'number':number});
@@ -137,7 +137,7 @@ function deleteLastQuestion() {
 function addMultipleChoiceAnswer(answerDIV, number) {
     var pre = document.createElement("div");
     pre.innerHTML = '<input class="multipleChoice" type="radio" name="question'+number+'" placeholder="option'+answerDIV.children.length+'"><input class="questionPromptCreate" type="text" name="question'+number+'Text'+answerDIV.children.length+'" placeholder="Question Answer"><br>';
-    answerDIV.appendChild(pre)
+    answerDIV.appendChild(pre);
 }
 
 function delMultipleChoiceAnswer(answerDIV) {
@@ -147,7 +147,7 @@ function delMultipleChoiceAnswer(answerDIV) {
 function addMatchingChoiceAnswer(answerDIV, number) {
     var pre = document.createElement("div");
     pre.innerHTML = '<input class="matchningPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'_1" placeholder="Question Prompt"> = <input class="matchningPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'_2" placeholder="Question Answer"></input>';
-    answerDIV.appendChild(pre)
+    answerDIV.appendChild(pre);
 }
 
 function delRankingChoiceAnswer(answerDIV) {
@@ -157,7 +157,7 @@ function delRankingChoiceAnswer(answerDIV) {
 function addRankingChoiceAnswer(answerDIV, number) {
     var pre = document.createElement("div");
     pre.innerHTML = '<input class="rankingPromptCreate" type="text" name="question'+number+'_'+answerDIV.children.length+'" placeholder="Question Answer '+(answerDIV.children.length+1)+'">';
-    answerDIV.appendChild(pre)
+    answerDIV.appendChild(pre);
 }
 
 function delMatchingChoiceAnswer(answerDIV) {
@@ -220,7 +220,7 @@ function submit(){
     localStorage.setItem("displayTestName", document.getElementById("testName").value);
     localStorage.setItem(document.getElementById("testName").value, JSON.stringify(test));
     console.log(test)
-    //updateDatabase(test)
+    updateDatabase(test)
     window.location.href ='displayTest.html';
 }
 
