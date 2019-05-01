@@ -36,17 +36,7 @@ function updateDatabase(testString){
   }*/
 }
 
-
-
 //Example way to set a test. Use add instead of set to add data.
-
-docRef.set({
-  testStatus: "success"
-}).then(function() {
-  alert("Test successfully saved!");
-}).catch(function (error){
-  console.log(error);
-});
 
 var test = {"type": "test", "questions":[]};
 var questionNumber = 1;
