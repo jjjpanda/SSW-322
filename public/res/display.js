@@ -56,7 +56,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
         //if (!answer)
         //    output += 'checked'
         output += '> False<br></div></div><br>'
-        return output + "<div id='correctness'></div><hr/>"
+        return output + "<div class='correctness'></div><hr/>"
     }
     if (type == "multipleChoice"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers">'
@@ -67,13 +67,13 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += '>'+answers[i]+'<br>'
         }
         output += '</div></div><br>'
-        return output  + "<div id='correctness'></div><hr/>";
+        return output  + "<div class='correctness'></div><hr/>";
     }
     if (type == "shortAnswer"){
-        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="shortAnswer" type="text" name="question'+number+'"></div></div><br></br>'  + "<div id='correctness'></div><hr/>"
+        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="shortAnswer" type="text" name="question'+number+'"></div></div><br></br>'  + "<div class='correctness'></div><hr/>"
     }
     if (type == "essayAnswer"){
-        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="essayAnswer" type="text" name="question'+number+'"></div></div><br>'  + "<div id='correctness'></div><hr/>"
+        return '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><input class="essayAnswer" type="text" name="question'+number+'"></div></div><br>'  + "<div class='correctness'></div><hr/>"
     }
     if (type == "matching"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="matchingTable"><th>Choices</th>';
@@ -87,7 +87,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += '<div class="matching"><input type="text" name="question'+number+'_'+(i+1)+'"><div id = "matchPrompt">= '+answer[i].answer+'</div></div><br>';
         }
         output += '</div></div><br>';
-        return output  + "<div id='correctness'></div><hr/>";
+        return output  + "<div class='correctness'></div><hr/>";
     }
     if (type == "ranking"){
         output = '<div class="question"><span class="questionNumber">'+number+' </span><span class="questionPromptDisplay">'+prompt+'</span><div class="questionAnswers"><table class="rankingTable"><th>Choices</th>';
@@ -101,7 +101,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
             output += (i+1)+') <input class="ranking" type="text" name="question'+number+'_'+(i+1)+'" ><br>'
         }
         output += '</div></div><br>';
-        return output  + "<div id='correctness'></div><hr/>";
+        return output  + "<div class='correctness'></div><hr/>";
     }
 }
 
@@ -207,7 +207,7 @@ function determineCorrectness(answers, answersFromUser){
 }
 
 function printCorrectness(element, correctness){
-    var pre = element.getElementById("correctness");
+    var pre = element.getElementsByClassName("correctness")[0];
     if(correctness){
         pre.innerHTML = "Correct";
     }
