@@ -1,4 +1,4 @@
-window.onload = function() {
+function initMyTests() {
     listTestsSurveys(localStorage)
 }
 
