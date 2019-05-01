@@ -80,13 +80,13 @@ h3{
 
 p.correct{
   border-style: solid;
-  border-width: 15px;
+  border-width: 7px;
   border-color: teal;
 }
 
 p.incorrect{
   border-style: solid;
-  border-width: 15px;
+  border-width: 7px;
   border-color: red;
 }
 
