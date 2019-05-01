@@ -3,7 +3,7 @@ function toggleSignIn() {
   if (firebase.auth().currentUser) {
     // [START signout]
     firebase.auth().signOut();
-    alert('Signing out')
+    alert('Signing out');
    signInDiv.style.display = "block";
     // [END signout]
   } else {
@@ -132,6 +132,7 @@ function initApp() {
     document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
     document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
     document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
+    var buttons = document.getElementsByClassName("signInRequired");
     if (user) {
       console.log('Signed in');
       // User is signed in.
@@ -141,7 +142,6 @@ function initApp() {
       var signInDiv = document.getElementById("userLoginInputs");
       signInDiv.style.display = "none";
       // [START_EXCLUDE]
-      var buttons = document.getElementsByClassName("signInRequired");
       for(var i = 0; i < buttons.length; i++) {
         buttons[i].disabled = false;
       }
@@ -153,9 +153,8 @@ function initApp() {
       console.log('Not signed in');
       // User is signed out.
       // [START_EXCLUDE]
-      var buttons = document.getElementsByClassName("signInRequired");
-      for(var i = 0; i < buttons.length; i++) {
-        buttons[i].disabled = true;
+      for(var z = 0; z < buttons.length; z++) {
+        buttons[z].disabled = true;
       }
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed out';
       document.getElementById('quickstart-sign-in').textContent = 'Sign in';
@@ -170,6 +169,3 @@ function initApp() {
   // [END authstatelistener]
 
 }
-document.getElementById("logo").onload = function() {
-  initApp();
-};
