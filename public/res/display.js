@@ -112,20 +112,35 @@ function submit(){
     for ( question of questions ){
         type = question.children[2].children[0].className
         if (type == "trueFalse"){
-            answersFromUser.push(question.children[2].children[0].checked) 
+            if(question.children[2].children[0].checked){
+                answersFromUser.push(true)
+            }
+            else if(question.children[2].children[0].checked){
+                answersFromUser.push(false)
+            }
+            else{
+                answersFromUser.push(0)
+            }
+             
         }
         if (type == "multipleChoice"){
             mc = question.children[2].getElementsByClassName(type)
             i = 0
+            foundAnswer = false;
             for (choice of mc){
-                if(!choice.checked) {
+                if(!choice.checked && !foundAnswer) {
                     i++;
                     continue;
                 }
                 else{
                     answersFromUser.push(i);
+                    foundAnswer = true;
                 }
             }
+            if(!foundAnswer){
+                answersFromUser.push(-1);
+            }
+            
         }
         if (type == "shortAnswer"){
             answersFromUser.push(question.children[2].children[0].value)
