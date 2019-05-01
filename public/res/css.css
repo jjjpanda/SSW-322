@@ -79,13 +79,13 @@ h3{
  }
 
 p.correct{
-  border-style: double;
+  border-style: solid;
   border-width: 15px;
   border-color: teal;
 }
 
 p.incorrect{
-  border-style: double;
+  border-style: solid;
   border-width: 15px;
   border-color: red;
 }
@@ -105,4 +105,8 @@ p.incorrect{
 
   .typeSelected {
     background-color:green;
+  }
+
+  input{
+    padding: 12px 20px;
   }
