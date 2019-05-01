@@ -166,10 +166,11 @@ function submit(){
         }
     }
     console.log(answersFromUser)
-    var answers = false;
+    var answersFromKey = false;
     if(test.type === 'test'){
-        answers = test.questions.map(element => element.answers)
-        determineCorrectness(answers, answersFromUser)
+        answersFromKey = test.questions.map(element => element.answers)
+        console.log(answersFromKey)
+        determineCorrectness(answersFromKey, answersFromUser)
     }
 }
 
