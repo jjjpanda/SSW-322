@@ -166,6 +166,76 @@ function submit(){
         }
     }
     console.log(answersFromUser)
+    var answers = false;
+    if(test.type === 'test'){
+        answers = test.questions.map(element => element.answers)
+        determineCorrectness(answers, answersFromUser)
+    }
+}
+
+function boolin(boolboy){
+    return true === boolboy
+}
+
+function determineCorrectness(answers, answersFromUser){
+    questionsOnScreen = document.getElementById("questionDiv").getElementsByTagName("p")
+    for(i = 0; i< answers.length; i++){
+        if(answers[i] instanceof Array){
+            correctness = []
+            for(j = 0; i<answers[i].length; i++){
+                if(answers[i][j] instanceof Object){
+                    correctness.push(isObjEquivalent(answers[i][j], answersFromUser[i][j]))
+                }
+                else{
+                    correctness.push(answers[i][j] === answersFromUser[i][j])
+                }
+            }
+            printCorrectness(questionsOnScreen[i], correctness.every(boolin))
+        }
+        else if(answers[i] === answersFromUser[i]){
+            printCorrectness(questionsOnScreen[i], true)
+        }
+        else{
+            printCorrectness(questionsOnScreen[i], false)
+        }
+    }
+}
+
+function printCorrectness(element, correctness){
+    var pre = document.createElement("div");
+    if(correctness){
+        pre.innerHTML = "Correct";
+    }
+    else{
+        pre.innerHTML = "Wrong";
+    }
+    element.appendChild(pre);
+}
+
+function isObjEquivalent(a, b) { //http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
+    // Create arrays of property names
+    var aProps = Object.getOwnPropertyNames(a);
+    var bProps = Object.getOwnPropertyNames(b);
+
+    // If number of properties is different,
+    // objects are not equivalent
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (var i = 0; i < aProps.length; i++) {
+        var propName = aProps[i];
+
+        // If values of same property are not equal,
+        // objects are not equivalent
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+
+    // If we made it this far, objects
+    // are considered equivalent
+    return true;
 }
 
 function writeToScreen(text) {
