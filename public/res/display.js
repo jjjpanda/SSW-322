@@ -135,6 +135,7 @@ function submit(){
                 else{
                     answersFromUser.push(i);
                     foundAnswer = true;
+                    break;
                 }
             }
             if(!foundAnswer){
@@ -167,6 +168,7 @@ function submit(){
     }
     console.log(answersFromUser)
     var answersFromKey = false;
+    console.log(test.type)
     if(test.type === 'test'){
         answersFromKey = test.questions.map(element => element.answers)
         console.log(answersFromKey)
