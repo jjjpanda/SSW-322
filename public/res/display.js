@@ -170,8 +170,7 @@ function submit(){
     var answersFromKey = false;
     console.log(test.type)
     if(test.type === 'test'){
-        answersFromKey = test.questions.map(element => element.answers)
-        console.log(answersFromKey)
+        answersFromKey = test.questions.map(element => element.answer)
         determineCorrectness(answersFromKey, answersFromUser)
     }
 }
