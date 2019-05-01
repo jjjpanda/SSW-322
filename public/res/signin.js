@@ -11,16 +11,19 @@ function toggleSignIn() {
     var password = document.getElementById('password').value;
     if (email.length==0){
       firebase.auth().signInAnonymously().catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode === 'auth/operation-not-allowed') {
-          alert('You must enable Anonymous auth in the Firebase Console.');
-        } else {
-          console.error(error);
-        }
-        // [END_EXCLUDE]
+        console.error(error);
+     });
+     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+     .then(function() {
+       // Existing and future Auth states are now persisted in the current
+       // session only. Closing the window would clear any existing state even
+       // if a user forgets to sign out.
+       // ...
+       // New sign-in will be persisted with session persistence.
+       return firebase.auth().signInWithEmailAndPassword(email, password);
+     })
+     .catch(function(error) {
+       console.error(error);
      });
     signInDiv.style.display = "none";
     }
@@ -57,6 +60,18 @@ function toggleSignIn() {
   for(var i = 0; i < buttons.length; i++) {
     buttons[i].disabled = false;
   }
+  firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(function() {
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  })
+  .catch(function(error) {
+    console.error(error);
+  });
 }
 function handleSignUp() {
   var email = document.getElementById('email').value;
