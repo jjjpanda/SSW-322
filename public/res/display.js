@@ -84,7 +84,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
         }
         output += '</table>';
         for (i = 0; i < answer.length; i++) {
-            output += '<input class="matching" type="text" name="question'+number+'_'+(i+1)+'"> = '+answer[i].answer+'<br>';
+            output += '<input class="matching" type="text" name="question'+number+'_'+(i+1)+'"><div id = "matchPrompt">= '+answer[i].answer+'</div><br>';
         }
         output += '</div></div><br>';
         return output  + "<hr/>";
@@ -137,7 +137,7 @@ function submit(){
             inputs = question.children[2].getElementsByTagName("input")
             bruh = []
             for(input of inputs){
-                bruh.push(input.value)
+                bruh.push({'prompt':input.innerHTML.innerText.substring(3),'answer':input.value})
             }
             answersFromUser.push(bruh);
         }
