@@ -84,7 +84,7 @@ function displayQuestion(type, number, prompt, answers, answer) {
         }
         output += '</table>';
         for (i = 0; i < answer.length; i++) {
-            output += '<input class="matching" type="text" name="question'+number+'_'+(i+1)+'"><div id = "matchPrompt">= '+answer[i].answer+'</div><br>';
+            output += '<input class="matching" type="text" name="question'+number+'_'+(i+1)+'"><div id = "matchPrompt">= '+answer[i].answer+'</div></input><br>';
         }
         output += '</div></div><br>';
         return output  + "<hr/>";
