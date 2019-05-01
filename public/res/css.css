@@ -111,3 +111,7 @@ p.incorrect{
     width: 33%;
     padding: 5px 5px;
   }
+
+  input[type='radio']{
+    width: 5%; 
+  }
