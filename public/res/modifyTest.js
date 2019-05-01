@@ -1,4 +1,4 @@
-window.onload = function() {
+function initModifyTest() {
     testname = localStorage.getItem("displayTestName")
     loadTest = JSON.parse(localStorage.getItem(testname))
     document.getElementById("testName").value = testname
