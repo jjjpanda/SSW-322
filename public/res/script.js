@@ -17,7 +17,7 @@ function initFirestore() {
             firebase.initializeApp(config);
         firestore = firebase.firestore();
         currentUser = firebase.auth().currentUser;
-        currentUID = currentUser.uid;
+        currentUID = document.getElementById("quickstart-account-details").value;
 }
 
 function updateDatabase(testString){
