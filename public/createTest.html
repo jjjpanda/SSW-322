@@ -10,7 +10,7 @@
   <link rel = "stylesheet" type="text/css" href="res/css.css"/>
 
 </head>
-<body onload="initApp(); initFirestore();">
+<body onload="initApp(); setTimeout(initFirestore, 1000);">
     <div id="nav"></div>
     <nav>
 
@@ -31,9 +31,10 @@
 
       <div align="right">sign-in status:</div>
       <div align="right" id="quickstart-sign-in-status">Signed out</div>
-      <!---
-      <pre><code style="display:none" id="quickstart-account-details">hi cutie ;)</code></pre>
-      -->
+      <div style="display:none">
+      <pre><code style="display:none" id="quickstart-account-details">UID</code></pre>
+    </div>
+
 
 
     <br></br>
