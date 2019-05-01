@@ -62,7 +62,7 @@ html{
     color: black;
     text-align: center;
     font-size: 16px;
-    padding: 4px 4px;
+    padding: 5px 5px;
     cursor:pointer;
 }
 .title h3{
@@ -104,9 +104,10 @@ p.incorrect{
   }
 
   .typeSelected {
-    background-color:green;
+    background-color: grey;
   }
 
   input{
-    padding: 12px 20px;
+    width: 33%;
+    padding: 5px 5px;
   }
