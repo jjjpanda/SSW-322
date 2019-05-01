@@ -9,7 +9,7 @@ html{
 }
 
 .button {
-    background-color: rgb(83, 142, 237);
+    background-color: rgb(136, 212, 223);
     border: none;
     color: black;
     padding: 4px 8px;
@@ -62,6 +62,7 @@ html{
     color: black;
     text-align: center;
     font-size: 16px;
+    margin: 0px 10 px
     padding: 5px 10px;
     cursor:pointer;
 }
