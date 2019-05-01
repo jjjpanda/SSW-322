@@ -137,7 +137,7 @@ function submit(){
             inputs = question.children[2].getElementsByClassName("matching")
             bruh = []
             for(input of inputs){
-                bruh.push({'prompt':input.getElementsByTagName('input')[0].value,'answer':input.getElementsByTagName('div')[0].innerText.substring(3)})
+                bruh.push({'prompt':input.getElementsByTagName('input')[0].value,'answer':input.getElementsByTagName('div')[0].innerText.substring(2)})
             }
             answersFromUser.push(bruh);
         }
